@@ -1,0 +1,15 @@
+{"version":6,"name":"Current Conditions - Big Display Block","namespace":"currentBig","variables":[
+    
+    {"variable":"updateInterval","desc":"Set the update interval in seconds. When selecting this take into account how often your API\/database is updated. Updates are performed by AJAX requests, so it should not affect the actual loading time of your homepage. If you select condition as the parameter shown, the image will not be updated, this is only for the actual parameters like temperature etc.","default":"60"},
+    
+    {"variable":"showParameter","desc":"Which parameter to use:<br>T (temperature), H (humidity), P (pressure), W (wind speed), G (wind gust), R (daily rain), A (feels like temperature), D (dew point), RR (rain rate), S (solar radiation), condition (current condition loaded from DarkSky), UV (UV)","default":"T"},
+    
+    {"variable":"fontSize","desc":"Font size (use a value between 1 and 4, you can use decimals and the higher the number, the larger the font)","default":"2.5"},
+
+    {"variable":"showTime","desc":"Show time of update","default":"false"},
+
+    {"variable":"currentBigHighlightUpdate","desc":"Briefly color highlight the timestamp and changed parameters when data is updated","default":"true"},
+
+    {"variable":"currentBigHighlightInterval","desc":"If you set the highlight above to true, then you can specify here the period for which the time will be highlighted. If you use a small number it will just briefly flash, if longer, it will stay highlighted for some time. The time should be in seconds.","default":"0.5"}
+    
+]}

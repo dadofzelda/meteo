@@ -1,0 +1,283 @@
+<?php
+ // Meteotemplate Configuration File
+ // Copy this file to config.php and fill in real credentials.
+ // config.php itself is gitignored - never commit real secrets.
+
+
+error_reporting(0);
+if(isset($_GET['errors'])) { error_reporting(E_ALL); ini_set('display_errors', 'On'); }
+
+
+
+$templateVersion = 19;
+$versionName = 'Cranberry';
+
+$dbName = 'CHANGE_ME';
+$con = mysqli_connect('CHANGE_ME_HOST','CHANGE_ME_USER','CHANGE_ME_PASSWORD',$dbName);
+mysqli_report(MYSQLI_REPORT_OFF); // required since PHP 8.1: mysqli throws exceptions on SQL errors by default
+
+$lang = 'us';
+$langAvailable = array("al","bg","cz","de","dk","ee","es","fi","fl","fr","gb","gr","hr","hu","il","it","jp","lt","nl","no","pl","pt","ro","rs","se","si","sk","us");
+
+$path = '/meteo/';
+$pageURL = 'https://weather.sollebrunn.net';
+$baseURL = dirname(__FILE__)."/";
+$adminPassword = 'CHANGE_ME';
+$updatePassword = 'CHANGE_ME';
+
+$displayTempUnits = 'C';
+$displayRainUnits = 'mm';
+$displayWindUnits = 'ms';
+$displayPressUnits = 'hpa';
+$displayCloudbaseUnits = 'm';
+$displayVisibilityUnits = 'km';
+$dataTempUnits = 'C';
+$dataRainUnits = 'mm';
+$dataWindUnits = 'ms';
+$dataPressUnits = 'hpa';
+
+$limitTempMin = -100;
+$limitTempMax = 100;
+$limitHumidityMin = 0;
+$limitHumidityMax = 100;
+$limitPressureMin = 950;
+$limitPressureMax = 1100;
+$limitRainMin = 0;
+$limitRainMax = 400;
+$limitRainRateMin = 0;
+$limitRainRateMax = 500;
+$limitBearingMin = 0;
+$limitBearingMax = 360;
+$limitWindMin = 0;
+$limitWindMax = 200;
+$limitSolarMin = 0;
+$limitSolarMax = 2000;
+$multiplierT = 0;
+$multiplierR = 1;
+$multiplierW = 1;
+$multiplierP = 0;
+
+$stationLat = 58.1222;
+$stationLon = 12.5216;
+$stationCountry = 'se';
+$stationLocation = 'Sollebrunn';
+$stationState = '';
+$stationTZ = 'Europe/Stockholm';
+$stationMETAR = 'ESGT';
+
+$pageAuthor = 'Christian Tisell';
+$pageName = 'Weather Sollebrunn Meteo';
+$pageDesc = 'Local Weather Sollebrunn, Sweden';
+$stationModel = 'Davis Pro 2';
+$stationIcon = 'davispro2';
+
+$design = 'indigo';
+$design2 = 'indigo';
+$designFont = 'Tahoma';
+$designFont2 = 'Tahoma';
+
+$gradient = false;
+
+$solarSensor = true;
+
+$dateFormat = 'Y-m-d';
+$timeFormat = 'H.i';
+$dateTimeFormat = 'Y-m-d H.i';
+$prefferedDate = 'M';
+$prefferedTime = '24h';
+$firstWeekday = 1;
+
+$graphTimeFormat = '%H.%M';
+$graphDateFormat = '%d. %m';
+$defaultPaperSize = 'A4';
+
+$bannerID = '';
+
+$climateID = '3011';
+
+$areaNormalsTUnits = 'C';
+$areaNormalsT = '-2.1;0.1;4.2;9.1;13.9;16.9;18.6;18.4;14.8;9.7;4;-0.3';
+$areaNormalsRUnits = 'mm';
+$areaNormalsR = '25;24;26;34;63;77;74;64;43;34;38;30';
+
+$userCustomColor = true;
+$userCustomFont = true;
+$userCustomUnits = true;
+$userCustomLang = true;
+
+$paypalButton = false;
+$paypalButtonCode = '';
+
+$wuIcon = false;
+$wuStationID = '';
+$wuStationAPI = '';
+$awekasIcon = false;
+$awekasID = '';
+$cwopIcon = false;
+$cwopID = '';
+$weathercloudIcon = false;
+$weathercloudID = '';
+$WOWMetofficeIcon = false;
+$WOWMetofficeID = '';
+$pwsIcon = true;
+$pwsID = 'SOLLESE';
+
+$tempGaugeMin = -30;
+$tempGaugeMax = 50;
+$pressureGaugeMin = 960;
+$pressureGaugeMax = 1040;
+$windGaugeMin = 0;
+$gustGaugeMin = 0;
+$windGaugeMax = 80;
+$gustGaugeMax = 120;
+$rainGaugeMin = 0;
+$rainGaugeMax = 50;
+$solarGaugeMin = 0;
+$solarGaugeMax = 1400;
+$apiRRCalculation = 'avg';
+
+$defaultGraphInterval = 'today';
+$defaultGraphParameter = 'T';
+
+$fIOKey = '';
+$fIOLanguage = 'en';
+$WWOApiKey = '';
+$WWOLocation = '';
+$WWOCacheTime = '60';
+$aerisID = '';
+$aerisSecret = '';
+$aerisCacheTime = '60';
+
+$googleAnalytics = true;
+$GAcode = 'UA-121365071-3';
+
+$enableAdminIP = false;
+$adminIPs = 'CHANGE_ME';
+$cookieNotice = false;
+
+$customBgColor1 = '#000';
+$customBgColor2 = '';
+$customBgColor3 = '';
+$customBgColor4 = '';
+$customBgType = 'vertical';
+$customBgImg = '';
+$customMaxWidth = '1600px';
+$customBlockRadius = '0px';
+$customBlockBevel = '0px';
+$customBlockBorderWidth = '0px';
+$customHeadingShadow = 'none';
+$customBodyTextShadow = 'none';
+$headerLeftImg = 'flag';
+$flagIconShape = 'flags';
+$customHeaderLeftImg = '';
+$mobileHeaderImg = '';
+$headerImg = 'interactive';
+$customHeaderImg = '';
+$headerSubtitleSelect = 'show';
+$headerSubtitleText = 'Local & Global weather info';
+$headerTitleSelect = 'show';
+$headerTitleText = 'Weather in Sollebrunn';
+$menuType = 'sticky';
+$menuSpeed = '400';
+$highlightMenuHover = false;
+$customGlobalFontSize = '1.0em';
+$customGraphFontSize = '12px';
+$customFooterDisplay = 'dateTime';
+$customFooterText = '';
+$headerConditions = true;
+$headerConditionsInterval = 5;
+
+$hideAdminEntrance = false;
+$hideHelpOpener = false;
+$hideMultipleBlockBorder = false;
+$flatDesignDesktop = false;
+$flatDesignMobile = false;
+$blockMaximizeDesktop = true;
+$blockMaximizeMobile = true;
+$blockExportDesktop = true;
+$blockExportMobile = true;
+
+$stationWarnings = true;
+$stationWarningsInterval = 'interval 30 minute';
+$warningHighT = '30';
+$warningLowT = '-10';
+$warningHighW = '15';
+$warningHighR = '20';
+$warningHighS = '700';
+
+$googleMapsAPIKey = 'CHANGE_ME';
+$alertActive = false;
+$minimumAlertInterval = 30;
+$alertEmail = '';
+$customPageSearch = false;
+$searchCode = '';
+$addSharer = true;
+$enableKeyboard = false;
+
+$redirectMobiles = true;
+$redirectTablets = true;
+$maxWidthMobile = 1200;
+$minWidthDesktop = 900;
+$mobileHomepageType = 'customizable';
+
+$stationElevation = 87;
+$stationElevationUnits = 'm';
+
+$templateUpdateCheck = true;
+
+$meteotemplateURL = 'https://www.meteotemplate.com';
+
+$titleSmallCaps = true;
+$titleBoldText = false;
+$subtitleSmallCaps = true;
+$subtitleBoldText = false;
+$menuLinksUpper = true;
+$moreLinkHighlight = false;
+$footerSeasonImages = true;
+$footerSeasonImagesType = 'astro';
+$showFooterStationStatus = false;
+
+
+
+$cookie_name = "weatherTemplate";
+if(!isset($_COOKIE[$cookie_name])) {}
+else {
+	if(!isset($doNotLoadCookie)){
+		$rawCookie = $_COOKIE[$cookie_name];
+		$cookieValues = explode(";",$rawCookie);
+		if($userCustomColor){
+			$design = $cookieValues[0];
+			$design2 = $cookieValues[1];
+		}
+		if($userCustomUnits){
+			$displayTempUnits = $cookieValues[2];
+			$displayRainUnits = $cookieValues[3];
+			$displayWindUnits = $cookieValues[4];
+			$displayPressUnits = $cookieValues[5];
+			$displayCloudbaseUnits = $cookieValues[6];
+			$displayVisibilityUnits = $cookieValues[7];
+		}
+		if($userCustomFont){
+			$designFont = $cookieValues[8];
+			$designFont2 = $cookieValues[9];
+		}
+		if($userCustomLang){
+			$lang = $cookieValues[10];
+		}
+	}
+}
+$climateUnitsTemp = $displayTempUnits;
+$climateUnitsRain = $displayRainUnits;
+$climateUnitsElevation = $displayCloudbaseUnits;
+
+date_default_timezone_set($stationTZ);
+$now = new DateTime();
+$mins = $now->getOffset() / 60;
+$sgn = ($mins < 0 ? -1 : 1);
+$mins = abs($mins);
+$hrs = floor($mins / 60);
+$mins -= $hrs * 60;
+$offset = sprintf("%+d:%02d", $hrs*$sgn, $mins);
+mysqli_query($con,"SET time_zone='$offset'");
+
+?>

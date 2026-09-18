@@ -1,0 +1,71 @@
+<?php
+// gauges settings file
+// Version: 7.1
+// Created: 2024-05-19 20:04:16
+
+$updateInterval = '15';
+$gaugeOrder = 'T,A,D,H,P,W,G,C,R,UV,S,CBI,FD';
+$gaugeTitles = true;
+$gaugeShadow = false;
+$showValuesDefault = true;
+$gaugeSizeDefault = '200';
+$animation = 'linear';
+$gaugeDesign = 'template';
+$circle3D = true;
+$showTime = true;
+$gaugesHighlightUpdate = true;
+$gaugesHighlightInterval = '0.5';
+$minLimitC = '-30';
+$maxLimitC = '40';
+$minLimitF = '-30';
+$maxLimitF = '110';
+$majorTickIntervalT = '10';
+$minorTickCountT = '10';
+$highlightT = true;
+$majorTickIntervalH = '20';
+$minorTickCountH = '4';
+$highlightH = true;
+$minLimitHPA = '980';
+$maxLimitHPA = '1040';
+$minLimitINHG = '28';
+$maxLimitINHG = '31';
+$minLimitMMHG = '730';
+$maxLimitMMHG = '780';
+$majorTickIntervalPHPA = '10';
+$majorTickIntervalPINHG = '1';
+$majorTickIntervalPMMHG = '10';
+$minorTickCountP = '5';
+$WmaxLimitKMH = '80';
+$WmaxLimitMS = '30';
+$WmaxLimitKT = '50';
+$WmaxLimitMPH = '50';
+$WmajorTickIntervalKMH = '10';
+$WmajorTickIntervalMS = '5';
+$WmajorTickIntervalKT = '10';
+$WmajorTickIntervalMPH = '10';
+$minorTickCountW = '5';
+$GmaxLimitKMH = '120';
+$GmaxLimitMS = '35';
+$GmaxLimitKT = '75';
+$GmaxLimitMPH = '75';
+$GmajorTickIntervalKMH = '10';
+$GmajorTickIntervalMS = '5';
+$GmajorTickIntervalKT = '10';
+$GmajorTickIntervalMPH = '10';
+$minorTickCountG = '5';
+$maxLimitMM = '50';
+$maxLimitCM = '5';
+$maxLimitIN = '2';
+$majorTickIntervalMM = '5';
+$majorTickIntervalCM = '0.5';
+$majorTickIntervalIN = '0.2';
+$minorTickCountR = '2';
+$highlightS = true;
+$limitUV = true;
+$highlightUV = true;
+$compassNeedle = 'arrow';
+$compassTitle = true;
+$highlightCBI = true;
+$highlightFD = true;
+
+

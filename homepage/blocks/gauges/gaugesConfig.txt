@@ -1,0 +1,131 @@
+{"version":7.1,"name":"Gauges","namespace":"gauges","variables":[
+    
+    {"variable":"updateInterval","desc":"Set the update interval in seconds. When selecting this take into account how often your text file\/database is updated. Updates are performed by AJAX requests, so it should not affect the actual loading time of your homepage. The number given should be in seconds.","default":"15"},
+    
+    {"variable":"gaugeOrder","desc":"specify the gauges you want to show, in the order you want.<br>Abbreviations: T - temperature, A - apparent temperature, H - humidity, P - pressure, W - wind speed, G - wind gust, C - compass (wind direction), R - daily precipitation, UV, S - solar radiation, D - dew point, CBI - Combustion Burning Index, FD - fire danger, WB - wet-bulb temperature","default":"T,A,D,H,P,W,G,C,R,UV,S,CBI,FD"},
+    
+    {"variable":"gaugeTitles","desc":"enable\/disable the parameter title inside the gauge.<br>true\/false","default":"true"},
+    
+    {"variable":"gaugeShadow","desc":"add glow (shadow) to the gauges","default":"false"},
+    
+    {"variable":"showValuesDefault","desc":"show the actual value inside the gauge","default":"true"},
+    
+    {"variable":"gaugeSizeDefault","desc":"default size of the gauge in pixels","default":"150"},
+    
+    {"variable":"animation","desc":"linear, quad, cycle, bounce, elastic","default":"linear"},
+    
+    {"variable":"gaugeDesign","desc":"Specify the gauge design.<br>\"template\" - use template colors, \"dark\", \"light\", \"black\", \"white\", \"retro\"","default":"template"},
+    
+    {"variable":"circle3D","desc":"add 3D look to the gauge outer circle","default":"true"},
+    
+    {"variable":"showTime","desc":"show update time above the gauges","default":"false"},
+    
+    {"variable":"gaugesHighlightUpdate","desc":"Briefly highlight the time value during updates (if time is enabled above).","default":"true"},
+    
+    {"variable":"gaugesHighlightInterval","desc":"The time for which the time should be highlighted during updates (if enabled above). If you use a very short time, the time value will just flash, longer times will result in the time being highlighted for longer period. The value should be in seconds","default":"0.5"},
+    
+    {"variable":"minLimitC","desc":"<br><br>INDIVIDUAL GAUGE SETTING<br>make sure you fill in values for all the units (or leave the defaults), because you have to remember the users can change these in the settings.<br><br>Temperature, apparent temperature, dew point gauge<br>minimum value when units set to C","default":"-30"},
+    
+    {"variable":"maxLimitC","desc":"maximum value when units set to C","default":"40"},
+    
+    {"variable":"minLimitF","desc":"minimum value when units set to F","default":"-30"},
+    
+    {"variable":"maxLimitF","desc":"maximum value when units set to F","default":"110"},
+    
+    {"variable":"majorTickIntervalT","desc":"interval between the numbers on the gauge (major ticks)","default":"10"},
+    
+    {"variable":"minorTickCountT","desc":"number of minor ticks between each major tick interval","default":"10"},
+    
+    {"variable":"highlightT","desc":"undercolor the values in blue (below freezing point) and red (above freezing point)","default":"true"},
+    
+    {"variable":"majorTickIntervalH","desc":"<br><br>Humidity gauge<br>interval between the numbers on the gauge (major ticks)","default":"20"},
+    
+    {"variable":"minorTickCountH","desc":"number of minor ticks between each major tick interval","default":"4"},
+    
+    {"variable":"highlightH","desc":"green gradient undercolor","default":"true"},
+    
+    {"variable":"minLimitHPA","desc":"<br><br>Pressure gauge<br>minimum value when units set to hPa","default":"980"},
+    
+    {"variable":"maxLimitHPA","desc":"maximum value when units set to hPa","default":"1040"},
+    
+    {"variable":"minLimitINHG","desc":"minimum value when units set to inHg","default":"28"},
+    
+    {"variable":"maxLimitINHG","desc":"maximum value when units set to inHg","default":"31"},
+    
+    {"variable":"minLimitMMHG","desc":"minimum value when units set to mmHg","default":"730"},
+    
+    {"variable":"maxLimitMMHG","desc":"maximum value when units set to mmHg","default":"780"},
+    
+    {"variable":"majorTickIntervalPHPA","desc":"interval between the numbers on the pressure gauge (major ticks) when units set to hPa","default":"10"},
+    
+    {"variable":"majorTickIntervalPINHG","desc":"interval between the numbers on the gauge (major ticks) when units set to inHg","default":"1"},
+    
+    {"variable":"majorTickIntervalPMMHG","desc":"interval between the numbers on the gauge (major ticks) when units set to mmHg","default":"10"},
+    
+    {"variable":"minorTickCountP","desc":"number of minor ticks between each major tick interval","default":"5"},
+    
+    {"variable":"WmaxLimitKMH","desc":"<br><br>Wind gauge<br>maximum value when units set to km\/h","default":"80"},
+    
+    {"variable":"WmaxLimitMS","desc":"maximum value when units set to m\/s","default":"25"},
+    
+    {"variable":"WmaxLimitKT","desc":"maximum value when units set to knots","default":"50"},
+    
+    {"variable":"WmaxLimitMPH","desc":"maximum value when units set to mph","default":"50"},
+    
+    {"variable":"WmajorTickIntervalKMH","desc":"interval between the numbers on the gauge (major ticks) when units set to km\/h","default":"10"},
+    
+    {"variable":"WmajorTickIntervalMS","desc":"interval between the numbers on the gauge (major ticks) when units set to m\/s","default":"5"},
+    
+    {"variable":"WmajorTickIntervalKT","desc":"interval between the numbers on the gauge (major ticks) when units set to knots","default":"10"},
+    
+    {"variable":"WmajorTickIntervalMPH","desc":"interval between the numbers on the gauge (major ticks) when units set to mph","default":"10"},
+    
+    {"variable":"minorTickCountW","desc":"number of minor ticks between each major tick interval","default":"5"},
+    
+    {"variable":"GmaxLimitKMH","desc":"<br><br>Gust gauge<br>maximum value when units set to km\/h","default":"120"},
+    
+    {"variable":"GmaxLimitMS","desc":"maximum value when units set to m\/s","default":"35"},
+    
+    {"variable":"GmaxLimitKT","desc":"maximum value when units set to knots","default":"75"},
+    
+    {"variable":"GmaxLimitMPH","desc":"maximum value when units set to mph","default":"75"},
+    
+    {"variable":"GmajorTickIntervalKMH","desc":"interval between the numbers on the gauge (major ticks) when units set to km\/h","default":"10"},
+    
+    {"variable":"GmajorTickIntervalMS","desc":"interval between the numbers on the gauge (major ticks) when units set to m\/s","default":"5"},
+    
+    {"variable":"GmajorTickIntervalKT","desc":"interval between the numbers on the gauge (major ticks) when units set to knots","default":"10"},
+    
+    {"variable":"GmajorTickIntervalMPH","desc":"interval between the numbers on the gauge (major ticks) when units set to mph","default":"10"},
+    
+    {"variable":"minorTickCountG","desc":"number of minor ticks between each major tick interval","default":"5"},
+    
+    {"variable":"maxLimitMM","desc":"<br><br>Rain gauge (daily cummulative value)<br>maximum value when units set to mm","default":"50"},
+    
+    {"variable":"maxLimitCM","desc":"maximum value when units set to cm","default":"5"},
+    
+    {"variable":"maxLimitIN","desc":"maximum value when units set to inches","default":"2"},
+    
+    {"variable":"majorTickIntervalMM","desc":"interval between the numbers on the gauge (major ticks) when units set to mm","default":"5"},
+    
+    {"variable":"majorTickIntervalCM","desc":"interval between the numbers on the gauge (major ticks) when units set to cm","default":"0.5"},
+    
+    {"variable":"majorTickIntervalIN","desc":"interval between the numbers on the gauge (major ticks) when units set to inches","default":"0.2"},
+    
+    {"variable":"minorTickCountR","desc":"number of minor ticks between each major tick interval","default":"2"},
+    
+    {"variable":"highlightS","desc":"<br><br>Solar radiation gauge<br>black->yellow gradient undercolor of the gauge","default":"true"},
+    
+    {"variable":"limitUV","desc":"<br><br>UV gauge<br>set this to true if you want the UV gauge to have a maximum of just 11 rather than 20","default":"true"},
+    
+    {"variable":"highlightUV","desc":"UV gauge undercolor","default":"true"},
+    
+    {"variable":"compassNeedle","desc":"<br><br>Wind direction (compass)<br>\"line\" - just an indicator line on the actual compass, \"arrow\" - full arrow from the gauge center, just like the other gauges","default":"line"},
+    
+    {"variable":"compassTitle","desc":"the label for wind direction can be set separately (it does not look very good when the line indicator is used)","default":"true"},
+    
+    {"variable":"highlightCBI","desc":"<br><br>CBI gauge<br>show undercolor for CBI gauge","default":"true"},
+    
+    {"variable":"highlightFD","desc":"<br><br>Fire danger gauge<br>show undercolor for fire danger gauge","default":"true"}
+    
+]}

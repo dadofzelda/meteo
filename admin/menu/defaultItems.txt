@@ -1,0 +1,32 @@
+{
+	"weatherStation" : {
+		"name" : "weather station",
+		"namespace" : "weatherStation",
+		"tabIcon" : "mticon-station",
+		"content" : ">>>\r\n>> live\r\n#default(currentData)\r\n>> interactive views\r\n#default(interactiveGraph)\r\n#default(interactiveTable)\r\n#default(intervalSummary)\r\n>> reports\r\n#default(reports)\r\n>> trends\r\n#default(trends)\r\n>>>\r\n>> statistics\r\n#default(statisticsT)\r\n#default(statisticsA)\r\n#default(statisticsD)\r\n#default(statisticsH)\r\n#default(statisticsP)\r\n#default(statisticsW)\r\n#default(statisticsG)\r\n#default(statisticsR)\r\n#default(statisticsS)\r\n>>>\r\n>>\r\n#default(statisticsDay)\r\n#default(statisticsNight)\r\n#default(rainSeasons)\r\n#default(seasons)\r\n>>\r\n#default(history)\r\n#default(calendar)"
+	},
+	"weather" : {
+		"name" : "weather",
+		"namespace" : "weather",
+		"tabIcon" : "mticon-weather",
+		"content" : ">>>\r\n>> forecast\r\n#default(outlook)\r\n>> current conditions\r\n#default(globalMap)\r\n#default(metar)"
+	},
+	"climate" : {
+		"name" : "climate",
+		"namespace" : "climate",
+		"tabIcon" : "mticon-cumulative",
+		"content" : ">>>\r\n#default(climateMap)\r\n#default(climateIndices)"
+	},
+	"astronomy" : {
+		"name" : "astronomy",
+		"namespace" : "astronomy",
+		"tabIcon" : "mticon-solarsystem",
+		"content" : ">>>\r\n#default(moonPhase)\r\n#default(sunTimes)\r\n#default(astroCalendar)\r\n#default(solsticeEquinox)\r\n#default(annualSolarMax)\r\n>>>\r\n#default(dayNight)"
+	},
+	"info" : {
+		"name" : "info",
+		"namespace" : "info",
+		"tabIcon" : "fa fa-info-circle",
+		"content" : ">> about\r\n#default(aboutLocation)\r\n#default(aboutPage)\r\n#default(aboutStation)\r\n>>\r\n#default(links)"
+	}
+}

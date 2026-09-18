@@ -1,0 +1,1 @@
+{"version":1.1,"name":"Logo","namespace":"logo","variables":[{"variable":"logoFile","desc":"path to the logo image file","default":"logo.png"},{"variable":"addBorder","desc":"add border to the logo (true\/false)","default":"true"}]}

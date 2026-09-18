@@ -1,0 +1,97 @@
+{"version":24.1,"name":"Current Conditions Block","namespace":"current","variables":[
+
+{"variable":"updateInterval","desc":"Set the update interval in seconds. When selecting this take into account how often your text file\/database is updated. Updates are performed by AJAX requests, so it should not affect the actual loading time of your homepage.","default":"60"},
+
+{"variable":"showDivs","desc":"Parameters to show: T (temperature), H (humidity), P (pressure), W (wind speed), G (wind gust), A (apparent temperature), D (dew point), R (precipitation), S (solar radiation), UV","default":"T,H,P,W,G,R,A,D,S,UV"},
+
+{"variable":"currentHighlightUpdate","desc":"Briefly color highlight the timestamp and changed parameters when data is updated","default":"true"},
+
+{"variable":"colorHighlight","desc":"If you set the highlight to true you can specify the color of the highlight. Use auto = based on theme color, or you can use color code such as for example #ff0000.","default":"auto"},
+
+{"variable":"currentHighlightInterval","desc":"If you set the highlight above to true, then you can specify here the period for which the time will be highlighted. If you use a small number it will just briefly flash, if longer, it will stay highlighted for some time. The time should be in seconds.","default":"0.5"},
+
+{"variable":"windDirectionView","desc":"Show wind direction as degrees or show a symbol with abbreviation; set to \"image\" or \"degrees\"","default":"image"},
+
+{"variable":"currentShowBftW","desc":"Show Beaufort scale for wind speed.","default":"true"},
+
+{"variable":"currentShowBftG","desc":"Show Beaufort scale for wind gust.","default":"true"},
+
+{"variable":"showTitle","desc":"Select if you want to show the title Current Conditions above the time","default":"false"},
+
+{"variable":"conditionEnable","desc":"Enable current conditions icon using DarkSky API","default":"true"},
+
+{"variable":"currentMaxInterval","desc":"Specify the maximum online interval. If the last update is older than this, the block will show just offline. The number should be in minutes. I recommend using slightly more than double the interval at which the source data is updated (to tolerate one missing interval and give some space for delay in transfer). For example, if you are using the database, the update interval is 5 minutes, so I would recommend using 11 minutes.","default":"11"},
+
+{"variable":"showCurrentWarnings","desc":"Specify if you want to show warning symbols below the values in case they exceed thresholds specified below. If you set this to false you can ignore the rest of this settings.","default":"true"},
+
+{"variable":"currentThresholdHighT","desc":"<br>MAKE SURE THAT THE THRESHOLDS SET BELOW CORRESPOND TO YOUR DATABASE UNITS SET IN MAIN SETTINGS!!! If you want to disable just one particular warning (for example high humidity), then simply set the number to some unrealistic value, in this example, if you set the humidity upper limit to 101, the warning would obviously never show.<br><br>High temperature threshold","default":"30"},
+
+{"variable":"currentThresholdLowT","desc":"Low temperature threshold","default":"0"},
+
+{"variable":"currentThresholdHighD","desc":"High dew point threshold","default":"30"},
+
+{"variable":"currentThresholdLowD","desc":"Low dew point threshold","default":"0"},
+
+{"variable":"currentThresholdHighA","desc":"High apparent temperature (feels like) threshold","default":"35"},
+
+{"variable":"currentThresholdLowA","desc":"Low apparent temperature (feels like) threshold","default":"-5"},
+
+{"variable":"currentThresholdHighH","desc":"High humidity threshold","default":"95"},
+
+{"variable":"currentThresholdLowH","desc":"Low humidity threshold","default":"40"},
+
+{"variable":"currentThresholdHighP","desc":"High pressure threshold","default":"1030"},
+
+{"variable":"currentThresholdLowP","desc":"Low pressure threshold","default":"995"},
+
+{"variable":"currentThresholdHighR","desc":"High rain rate (your precipitation units per hour) threshold","default":"50"},
+
+{"variable":"currentThresholdHighW","desc":"High average wind speed threshold","default":"25"},
+
+{"variable":"currentThresholdHighG","desc":"High wind gust threshold","default":"35"},
+
+{"variable":"currentThresholdHighS","desc":"High solar radiation threshold (if solar sensor available, otherwise ignore)","default":"800"},
+
+{"variable":"currentThresholdHighUV","desc":"High UV threshold (if UV enabled, otherwise ignore)","default":"7"},
+
+{"variable":"currentWarningColorHighT","desc":"High temperature / apparent temperature / dew point warning color","default":"#c30000"},
+
+{"variable":"currentWarningColorLowT","desc":"Low temperature / apparent temperature / dew point warning color","default":"#0045ba"},
+
+{"variable":"currentWarningColorHighH","desc":"High humidity warning color","default":"#007528"},
+
+{"variable":"currentWarningColorLowH","desc":"Low humidity warning color","default":"#c6a600"},
+
+{"variable":"currentWarningColorHighP","desc":"High pressure warning color","default":"#a800b1"},
+
+{"variable":"currentWarningColorLowP","desc":"Low pressure warning color","default":"#b96f00"},
+
+{"variable":"currentWarningColorHighR","desc":"High rain rate warning color","default":"#0065db"},
+
+{"variable":"currentWarningColorHighW","desc":"High average wind speed / wind gust warning color","default":"#5a00a1"},
+
+{"variable":"currentWarningColorHighS","desc":"High solar radiation warning color","default":"#ced200"},
+
+{"variable":"currentWarningColorHighUV","desc":"High UV warning color","default":"#d78800"},
+
+{"variable":"currentShowTrends","desc":"Show trends","default":"true"},
+
+{"variable":"currentTrendInterval","desc":"The trend is calculated from the change over the last X hours. Here you can specify the number of hours to the past to use.<br>Options: 1, 2, 3, 4, 5, 6","default":3},
+
+{"variable":"currentShowIndoor","desc":"Show indoor data","default":"true"},
+
+{"variable":"autoOpenCurrent","desc":"Auto-open the 'more' option","default":"false"},
+
+{"variable":"hideSeconds","desc":"Hide seconds in the update time (only show hours and minutes)","default":"false"},
+
+{"variable":"hideMainSection","desc":"Hide the main top compact section and only show default detailed view.","default":"false"},
+
+{"variable":"showLabels","desc":"Show textual labels under icons.","default":"false"},
+
+{"variable":"dualUnits","desc":"Show dual units.","default":"false"},
+
+{"variable":"alternativeW","desc":"Alternative wind units (if dual units enabled). Options: kmh, ms, mph, kt.","default":"mph"},
+
+{"variable":"alternativeP","desc":"Alternative pressure units (if dual units enabled). Options: hpa, inhg, mmhg.","default":"inhg"}
+
+]}

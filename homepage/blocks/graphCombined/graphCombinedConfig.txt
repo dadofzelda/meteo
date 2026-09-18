@@ -1,0 +1,9 @@
+{"version":2,"name":"Graph - combined","namespace":"combined","variables":[
+
+    {"variable":"graphsToInclude","desc":"Graphs to include (delimited by a comma). T - temperature, A - apparent temperature, D - dew point, H - humidity, P - pressure, W - wind speed, G - wind gust, R - precipitation, S - solar radiation. Specify them in the order in which you want them to appear.","default":"T,H,W,R"},
+
+    {"variable":"graphSpan","desc":"Graph interval. Options: today, 24h, 7d, 30d","default":"24h"},
+
+    {"variable":"graphHeight","desc":"Single graph height in pixels","default":"200"}
+
+]}

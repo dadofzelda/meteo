@@ -1,0 +1,1 @@
+{"mobile":{"columns":[{"0":"multipleBlock(current,100)","2":"multipleBlock(stationData,100)"}],"columnWidths":["100"],"theme":"dark","highlightedBlocks":"","headerBlock":"","footerBlock":"","adminBlock":""}}

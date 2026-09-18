@@ -1,0 +1,13 @@
+{"version":2.1,"name":"Dynamic Graph","namespace":"dynamicGraph","variables":[
+    
+    {"variable":"updateType","desc":"Update type, choose either 'api' or 'cumulus'","default":"api"},
+
+    {"variable":"updateFile","desc":"URL of the current conditions file. In case of API, leave blank, for Cumulus, enter URL or relative path of realtime.txt.","default":""},
+    
+    {"variable":"dynamicGraphParameter","desc":"This block loads data from the current conditions file.<br><br>Parameter to use in the graph, options: T - temperature, A - apprarent temperature, D - dew point, H - humidity, P - pressure, W - wind speed, G - wind gust, S - solar radiation","default":"T"},
+    
+    {"variable":"dynamicGraphInterval","desc":"Set the update interval of the graph. Use something that will match the interval of your CRON/API updates. There is no point in having the graph being updated every 10 seconds if new data is loaded by the template only once per minute, this will just use up browser resources. Use interval slightly shorter than the updates. For example, if you are updating the current conditions file at 60 seconds interval, use 50. Number should be in seconds.","default":"30"},
+    
+    {"variable":"dynamicGraphPreload","desc":"Initially when you load the page, the graph will preload some data from the past from the database to start with. Select how many points to the past you want to go. Recommended: something in the range from 10 to 50.","default":"25"}
+    
+]}

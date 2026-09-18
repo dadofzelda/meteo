@@ -1,0 +1,66 @@
+<?php
+
+$station[] = "MMAA; General Juan N Alvarez International, Acapulco";
+$station[] = "MMAN; Del Norte International, Monterrey";
+$station[] = "MMAS; Jesus Teran International, Aguascalientes";
+$station[] = "MMBT; Bahias De Huatulco International, Bahias Dehuatulco";
+$station[] = "MMCB; Cuernavaca, Cuernavaca";
+$station[] = "MMCE; Ciudad Del Carmen International, Ciudad Del Carmen";
+$station[] = "MMCL; Culiacan International, Culiacan";
+$station[] = "MMCM; Chetumal International, Chetumal";
+$station[] = "MMCN; Ciudad Obregon International, Ciudad Obregon";
+$station[] = "MMCP; Ingeniero Alberto Acuna Ongay International, Campeche";
+$station[] = "MMCS; Abraham Gonzalez International, Ciudad Juarez";
+$station[] = "MMCU; General R Fierro Villalobos International, Chihuahua";
+$station[] = "MMCV; Ciudad Victoria, Ciudad Victoria";
+$station[] = "MMCZ; Cozumel International, Cozumel";
+$station[] = "MMDO; Durango International, Durango";
+$station[] = "MMEP; Tepic, Tepic";
+$station[] = "MMGL; Don Miguel Y Hidalgo International, Guadalajara";
+$station[] = "MMGM; General Jose Maria Yanez International, Guaymas";
+$station[] = "MMHO; General Ignacio P Garcia International, Hermosillo";
+$station[] = "MMIA; Colima, Colima";
+$station[] = "MMIO; Plan De Guadalupe International, Saltillo";
+$station[] = "MMIT; Ixtepec, Iztepec";
+$station[] = "MMLC; Lazaro Cardenas, Lazard Cardenas";
+$station[] = "MMLM; Valle Del Fuerte International, Los Mochis";
+$station[] = "MMLO; De Guanajuato International, Del Bajio";
+$station[] = "MMLP; General Manuel Marquez De Leon International, La Paz";
+$station[] = "MMLT; Loreto International, Loreto";
+$station[] = "MMMA; General Servando Canales International, Matamoros";
+$station[] = "MMMD; Licenciado Manuel Crecencio Rejon International, Merida";
+$station[] = "MMML; General Rodolfo Sanchez Taboada International, Mexicali";
+$station[] = "MMMM; General Francisco J Mujica, Morelia";
+$station[] = "MMMT; Minatitlan, Minatitlan";
+$station[] = "MMMV; Monclova International, Monclova";
+$station[] = "MMMX; Licenciado Benito Juarez International, Mexico City";
+$station[] = "MMMY; General Mariano Escobedo International, Monterrey";
+$station[] = "MMMZ; General Rafael Buelna International, Mazatlan";
+$station[] = "MMNL; Quetzalcoatl International, Nuevo Laredo";
+$station[] = "MMOX; Xoxocotlan International, Oaxaca";
+$station[] = "MMPA; Tajin, Poza Rico";
+$station[] = "MMPB; Hermanos Serdan International, Puebla";
+$station[] = "MMPG; Piedras Negras International, Piedras Negras";
+$station[] = "MMPN; Licenciado Y Gen Ignacio Lopez Rayon, Uruapan";
+$station[] = "MMPR; Licenciado Gustavo Diaz Ordaz International, Puerto Vallarta";
+$station[] = "MMPS; Puerto Escondido, Puerto Escondido";
+$station[] = "MMQT; Ingeniero F Espinoza Gutierrez International, Queretaro";
+$station[] = "MMRX; General Lucio Blanco International, Reynosa";
+$station[] = "MMSD; Los Cabos International, San Jose Del Cabo";
+$station[] = "MMSP; Ponciano Arriaga International, San Luis Potosi";
+$station[] = "MMTC; Torreon International, Torreon";
+$station[] = "MMTG; Francisco Sarabia, Tuxtla Gutierrez";
+$station[] = "MMTJ; General Abelardo L Rodriguez International, Tijuana";
+$station[] = "MMTM; General Francisco Javier Mina International, Tampico";
+$station[] = "MMTO; Licenciado Adolfo Lopez Mateos International, Toluca";
+$station[] = "MMTP; Tapachula International, Tapachula";
+$station[] = "MMUN; Cancun International, Cancun";
+$station[] = "MMVA; C P A Carlos Rovirosa International, Villahermosa";
+$station[] = "MMVR; General Heriberto Jara International, Vera Cruz";
+$station[] = "MMZC; General Leobardo C Ruiz International, Zacatecas";
+$station[] = "MMZH; Ixtapa Zihuatanejo International, Zihuatanejo";
+$station[] = "MMZO; Playa De Oro International, Manzanillo";
+$station[] = "MMZP; Zapopan, Zapopan";
+
+
+?>

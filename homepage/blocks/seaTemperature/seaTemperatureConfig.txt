@@ -1,0 +1,5 @@
+{"version":2.2,"name":"Sea Temperature","namespace":"seaTemperature","variables":[
+    
+    {"variable":"defaultURL","desc":"Go to seatemperature.org, find the locations you want and insert the URL similar to the default one you see. If you want to use more than one location, you separate the URLs with a semi-colon (;). Please note! The maximum number of locations is 5!","default":"europe\/portugal\/lisbon.htm;north-america\/united-states\/new-york-city.htm"}]
+
+}

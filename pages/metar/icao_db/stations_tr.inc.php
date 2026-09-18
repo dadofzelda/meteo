@@ -1,0 +1,64 @@
+<?php
+
+$station[] = "LTAA; Ankara Acc, Ankara Acc Fir Fic";
+$station[] = "LTAB; Guvercinlik, Ankara";
+$station[] = "LTAC; Esenboga, Ankara";
+$station[] = "LTAD; Etimesgut, Ankara";
+$station[] = "LTAE; Akinci, Ankara";
+$station[] = "LTAF; Adana, Adana";
+$station[] = "LTAG; Incirlik Ab, Adana";
+$station[] = "LTAH; Afyon, Afyon";
+$station[] = "LTAI; Antalya, Antalya";
+$station[] = "LTAJ; Oguzeli, Gaziantep";
+$station[] = "LTAK; Iskenderun, Iskenderun";
+$station[] = "LTAL; Kastamonu, Kastamonu";
+$station[] = "LTAN; Konya, Konya";
+$station[] = "LTAP; Merzifon, Merzifon";
+$station[] = "LTAQ; Samsun Airport, Samsun";
+$station[] = "LTAR; Sivas, Sivas";
+$station[] = "LTAS; Caycuma, Zonguldak";
+$station[] = "LTAT; Erhac, Malatya";
+$station[] = "LTAU; Erkilet, Kayseri";
+$station[] = "LTAV; Sivrihisar, Sivrihisar";
+$station[] = "LTAW; Tokat, Tokat";
+$station[] = "LTAX; Erdemir, Eregli";
+$station[] = "LTAY; Cardak, Denizli";
+$station[] = "LTAZ; Kapadokya, Nevsehir";
+$station[] = "LTBA; Ataturk, Istanbul";
+$station[] = "LTBD; Cildir, Aydin";
+$station[] = "LTBE; Bursa, Bursa";
+$station[] = "LTBF; Balikesir, Balikesir";
+$station[] = "LTBG; Bandirma, Bandirma";
+$station[] = "LTBH; Canakkale, Canakkale";
+$station[] = "LTBI; Eskisehir, Eskisehir";
+$station[] = "LTBJ; Adnan Menderes, Izmir";
+$station[] = "LTBK; Gaziemir, Izmir";
+$station[] = "LTBL; Cigli, Izmir";
+$station[] = "LTBM; Isparta, Isparta";
+$station[] = "LTBN; Kutahya, Kutahya";
+$station[] = "LTBO; Usak, Usak";
+$station[] = "LTBP; Yalova, Yalova";
+$station[] = "LTBQ; Topel, Topel";
+$station[] = "LTBR; Yenisehir, Yenisehir";
+$station[] = "LTBS; Dalaman, Dalaman";
+$station[] = "LTBT; Akhisar, Akhisar";
+$station[] = "LTBU; Corlu, Corlu";
+$station[] = "LTBX; Samandira, Istanbul";
+$station[] = "LTBY; Anadolu, Eskissehir";
+$station[] = "LTCA; Elazig, Elazig";
+$station[] = "LTCC; Diyarbakir, Diyabakir";
+$station[] = "LTCD; Erzincan, Erzincan";
+$station[] = "LTCE; Erzurum, Erzurum";
+$station[] = "LTCF; Kars, Kars";
+$station[] = "LTCG; Trabzon, Trabzon";
+$station[] = "LTCH; Sanliurfa, Sanliurfa";
+$station[] = "LTCI; Van, Van";
+$station[] = "LTCJ; Batman, Batman";
+$station[] = "LTCK; Mus, Mus";
+$station[] = "LTCL; Siirt, Siirt";
+$station[] = "LTCM; Sinop, Niniop";
+$station[] = "LTFA; Kaklic, Izmir";
+$station[] = "LTFB; Efes, Izmir";
+
+
+?>

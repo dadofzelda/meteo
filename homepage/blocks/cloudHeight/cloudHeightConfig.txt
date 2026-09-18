@@ -1,0 +1,1 @@
+{"version":4.0,"name":"Cloud Height","namespace":"cloudHeight","variables":[{"variable":"cloudHeightHeading","desc":"Do you want to show heading in the block?","default":"true"}]}

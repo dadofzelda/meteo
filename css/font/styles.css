@@ -1,0 +1,712 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "meteotemplate";
+  src:url("fonts/meteotemplate.eot");
+  src:url("fonts/meteotemplate.eot?#iefix") format("embedded-opentype"),
+    url("fonts/meteotemplate.woff") format("woff"),
+    url("fonts/meteotemplate.ttf") format("truetype"),
+    url("fonts/meteotemplate.svg#meteotemplate") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "meteotemplate" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="mticon-"]:before,
+[class*=" mticon-"]:before {
+  font-family: "meteotemplate" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mticon-1h:before {
+  content: "\61";
+}
+.mticon-2weeks:before {
+  content: "\62";
+}
+.mticon-3days:before {
+  content: "\63";
+}
+.mticon-3h:before {
+  content: "\64";
+}
+.mticon-3months:before {
+  content: "\65";
+}
+.mticon-3paramgraph:before {
+  content: "\66";
+}
+.mticon-6h:before {
+  content: "\67";
+}
+.mticon-6m:before {
+  content: "\68";
+}
+.mticon-10days:before {
+  content: "\69";
+}
+.mticon-12h:before {
+  content: "\6a";
+}
+.mticon-12m:before {
+  content: "\6b";
+}
+.mticon-24h:before {
+  content: "\6c";
+}
+.mticon-48h:before {
+  content: "\6d";
+}
+.mticon-acuritevn1black:before {
+  content: "\6e";
+}
+.mticon-addblock:before {
+  content: "\6f";
+}
+.mticon-allmonths:before {
+  content: "\70";
+}
+.mticon-ambient1001black:before {
+  content: "\71";
+}
+.mticon-antipode:before {
+  content: "\72";
+}
+.mticon-apparent:before {
+  content: "\73";
+}
+.mticon-applogo:before {
+  content: "\74";
+}
+.mticon-areachart:before {
+  content: "\75";
+}
+.mticon-areaspline:before {
+  content: "\76";
+}
+.mticon-asteroids:before {
+  content: "\77";
+}
+.mticon-autumn:before {
+  content: "\78";
+}
+.mticon-ban:before {
+  content: "\79";
+}
+.mticon-barchart:before {
+  content: "\7a";
+}
+.mticon-barchart-1:before {
+  content: "\41";
+}
+.mticon-barotrend:before {
+  content: "\42";
+}
+.mticon-bearing:before {
+  content: "\43";
+}
+.mticon-bioindexes:before {
+  content: "\44";
+}
+.mticon-blocks:before {
+  content: "\45";
+}
+.mticon-buoy:before {
+  content: "\46";
+}
+.mticon-calendar-day:before {
+  content: "\47";
+}
+.mticon-calendar-month:before {
+  content: "\48";
+}
+.mticon-calendar-year:before {
+  content: "\49";
+}
+.mticon-camera:before {
+  content: "\4a";
+}
+.mticon-cdd:before {
+  content: "\4b";
+}
+.mticon-chart:before {
+  content: "\4c";
+}
+.mticon-cloudbase:before {
+  content: "\4d";
+}
+.mticon-clouds:before {
+  content: "\4e";
+}
+.mticon-cloudtemp:before {
+  content: "\4f";
+}
+.mticon-co2:before {
+  content: "\50";
+}
+.mticon-cold:before {
+  content: "\51";
+}
+.mticon-compare:before {
+  content: "\52";
+}
+.mticon-comparisongraph:before {
+  content: "\53";
+}
+.mticon-continentality:before {
+  content: "\54";
+}
+.mticon-cumulative:before {
+  content: "\55";
+}
+.mticon-cumulus:before {
+  content: "\56";
+}
+.mticon-cyclone:before {
+  content: "\57";
+}
+.mticon-da:before {
+  content: "\58";
+}
+.mticon-datacheck:before {
+  content: "\59";
+}
+.mticon-davispro2:before {
+  content: "\5a";
+}
+.mticon-daylength:before {
+  content: "\31";
+}
+.mticon-daynight:before {
+  content: "\32";
+}
+.mticon-deviation:before {
+  content: "\33";
+}
+.mticon-dewpoint:before {
+  content: "\34";
+}
+.mticon-dictionary:before {
+  content: "\35";
+}
+.mticon-disasters:before {
+  content: "\36";
+}
+.mticon-distance:before {
+  content: "\37";
+}
+.mticon-doppler:before {
+  content: "\38";
+}
+.mticon-e:before {
+  content: "\39";
+}
+.mticon-earthquake:before {
+  content: "\21";
+}
+.mticon-elevation:before {
+  content: "\22";
+}
+.mticon-elnino:before {
+  content: "\23";
+}
+.mticon-ene:before {
+  content: "\24";
+}
+.mticon-ese:before {
+  content: "\25";
+}
+.mticon-evapotranspiration:before {
+  content: "\26";
+}
+.mticon-extremes:before {
+  content: "\27";
+}
+.mticon-fire:before {
+  content: "\28";
+}
+.mticon-fog:before {
+  content: "\29";
+}
+.mticon-fog-1:before {
+  content: "\2a";
+}
+.mticon-footprint:before {
+  content: "\2b";
+}
+.mticon-forecast:before {
+  content: "\2c";
+}
+.mticon-fossil:before {
+  content: "\2d";
+}
+.mticon-fullmoon:before {
+  content: "\2e";
+}
+.mticon-future:before {
+  content: "\2f";
+}
+.mticon-gauges:before {
+  content: "\3a";
+}
+.mticon-gdd:before {
+  content: "\3b";
+}
+.mticon-gdp:before {
+  content: "\3c";
+}
+.mticon-globe:before {
+  content: "\3d";
+}
+.mticon-gps:before {
+  content: "\3e";
+}
+.mticon-graph:before {
+  content: "\3f";
+}
+.mticon-grlevelx:before {
+  content: "\40";
+}
+.mticon-gust:before {
+  content: "\5b";
+}
+.mticon-hail:before {
+  content: "\5d";
+}
+.mticon-halfmoon:before {
+  content: "\5e";
+}
+.mticon-hdd:before {
+  content: "\5f";
+}
+.mticon-hightide:before {
+  content: "\60";
+}
+.mticon-history:before {
+  content: "\7b";
+}
+.mticon-hot:before {
+  content: "\7c";
+}
+.mticon-humidity:before {
+  content: "\7d";
+}
+.mticon-humidity-range:before {
+  content: "\7e";
+}
+.mticon-hurricane:before {
+  content: "\5c";
+}
+.mticon-import:before {
+  content: "\e000";
+}
+.mticon-indoor:before {
+  content: "\e001";
+}
+.mticon-indoorhumidity:before {
+  content: "\e002";
+}
+.mticon-indoortemp:before {
+  content: "\e003";
+}
+.mticon-irsat:before {
+  content: "\e004";
+}
+.mticon-iss:before {
+  content: "\e005";
+}
+.mticon-labels:before {
+  content: "\e006";
+}
+.mticon-land:before {
+  content: "\e007";
+}
+.mticon-lat:before {
+  content: "\e008";
+}
+.mticon-layout:before {
+  content: "\e009";
+}
+.mticon-leafwetness:before {
+  content: "\e00a";
+}
+.mticon-linechart:before {
+  content: "\e00b";
+}
+.mticon-logo:before {
+  content: "\e00c";
+}
+.mticon-lon:before {
+  content: "\e00d";
+}
+.mticon-longterm:before {
+  content: "\e00e";
+}
+.mticon-lowtide:before {
+  content: "\e00f";
+}
+.mticon-lunar:before {
+  content: "\e010";
+}
+.mticon-map:before {
+  content: "\e011";
+}
+.mticon-mars:before {
+  content: "\e012";
+}
+.mticon-meteor:before {
+  content: "\e013";
+}
+.mticon-month:before {
+  content: "\e014";
+}
+.mticon-moon:before {
+  content: "\e015";
+}
+.mticon-moonrise:before {
+  content: "\e016";
+}
+.mticon-moonset:before {
+  content: "\e017";
+}
+.mticon-moontransit:before {
+  content: "\e018";
+}
+.mticon-mysql:before {
+  content: "\e019";
+}
+.mticon-n:before {
+  content: "\e01a";
+}
+.mticon-ne:before {
+  content: "\e01b";
+}
+.mticon-neo:before {
+  content: "\e01c";
+}
+.mticon-netatmoblack:before {
+  content: "\e01d";
+}
+.mticon-newmoon:before {
+  content: "\e01e";
+}
+.mticon-night:before {
+  content: "\e01f";
+}
+.mticon-nightsky:before {
+  content: "\e020";
+}
+.mticon-nne:before {
+  content: "\e021";
+}
+.mticon-nnw:before {
+  content: "\e022";
+}
+.mticon-no2:before {
+  content: "\e023";
+}
+.mticon-nox:before {
+  content: "\e024";
+}
+.mticon-nw:before {
+  content: "\e025";
+}
+.mticon-o3:before {
+  content: "\e026";
+}
+.mticon-outlook:before {
+  content: "\e027";
+}
+.mticon-overcast:before {
+  content: "\e028";
+}
+.mticon-partlycloudy:before {
+  content: "\e029";
+}
+.mticon-plane:before {
+  content: "\e02a";
+}
+.mticon-plugin:before {
+  content: "\e02b";
+}
+.mticon-pm10:before {
+  content: "\e02c";
+}
+.mticon-pressure:before {
+  content: "\e02d";
+}
+.mticon-pressureconversion:before {
+  content: "\e02e";
+}
+.mticon-qr:before {
+  content: "\e02f";
+}
+.mticon-radials:before {
+  content: "\e030";
+}
+.mticon-rain:before {
+  content: "\e031";
+}
+.mticon-rain-range:before {
+  content: "\e032";
+}
+.mticon-rainsnow:before {
+  content: "\e033";
+}
+.mticon-raspberryblack:before {
+  content: "\e034";
+}
+.mticon-reformat:before {
+  content: "\e035";
+}
+.mticon-s:before {
+  content: "\e036";
+}
+.mticon-satellite:before {
+  content: "\e037";
+}
+.mticon-scale:before {
+  content: "\e038";
+}
+.mticon-scatterchart:before {
+  content: "\e039";
+}
+.mticon-se:before {
+  content: "\e03a";
+}
+.mticon-shortterm:before {
+  content: "\e03b";
+}
+.mticon-snow:before {
+  content: "\e03c";
+}
+.mticon-snowdepth:before {
+  content: "\e03d";
+}
+.mticon-snowfall:before {
+  content: "\e03e";
+}
+.mticon-so2:before {
+  content: "\e03f";
+}
+.mticon-soilmoisture:before {
+  content: "\e040";
+}
+.mticon-soiltemperature:before {
+  content: "\e041";
+}
+.mticon-solar:before {
+  content: "\e042";
+}
+.mticon-solarsystem:before {
+  content: "\e043";
+}
+.mticon-solarwind:before {
+  content: "\e044";
+}
+.mticon-splinechart:before {
+  content: "\e045";
+}
+.mticon-spring:before {
+  content: "\e046";
+}
+.mticon-sse:before {
+  content: "\e047";
+}
+.mticon-ssw:before {
+  content: "\e048";
+}
+.mticon-station:before {
+  content: "\e049";
+}
+.mticon-stationaverages:before {
+  content: "\e04a";
+}
+.mticon-storm:before {
+  content: "\e04b";
+}
+.mticon-storm-1:before {
+  content: "\e04c";
+}
+.mticon-summary:before {
+  content: "\e04d";
+}
+.mticon-summer:before {
+  content: "\e04e";
+}
+.mticon-sun:before {
+  content: "\e04f";
+}
+.mticon-sunlight-ratio:before {
+  content: "\e050";
+}
+.mticon-sunrise:before {
+  content: "\e051";
+}
+.mticon-sunset:before {
+  content: "\e052";
+}
+.mticon-sw:before {
+  content: "\e053";
+}
+.mticon-table:before {
+  content: "\e054";
+}
+.mticon-temp:before {
+  content: "\e055";
+}
+.mticon-temp-range:before {
+  content: "\e056";
+}
+.mticon-terminology:before {
+  content: "\e057";
+}
+.mticon-tide:before {
+  content: "\e058";
+}
+.mticon-time:before {
+  content: "\e059";
+}
+.mticon-tornado:before {
+  content: "\e05a";
+}
+.mticon-translation:before {
+  content: "\e05b";
+}
+.mticon-trenddown:before {
+  content: "\e05c";
+}
+.mticon-trendneutral:before {
+  content: "\e05d";
+}
+.mticon-trendup:before {
+  content: "\e05e";
+}
+.mticon-updateblock:before {
+  content: "\e05f";
+}
+.mticon-updateoptions:before {
+  content: "\e060";
+}
+.mticon-uv:before {
+  content: "\e061";
+}
+.mticon-visibility:before {
+  content: "\e062";
+}
+.mticon-volcano:before {
+  content: "\e063";
+}
+.mticon-w:before {
+  content: "\e064";
+}
+.mticon-warningdrought:before {
+  content: "\e065";
+}
+.mticon-warningflood:before {
+  content: "\e066";
+}
+.mticon-warninggeneral:before {
+  content: "\e067";
+}
+.mticon-warninghight:before {
+  content: "\e068";
+}
+.mticon-warninghurricane:before {
+  content: "\e069";
+}
+.mticon-warningice:before {
+  content: "\e06a";
+}
+.mticon-warninglowt:before {
+  content: "\e06b";
+}
+.mticon-warningrain:before {
+  content: "\e06c";
+}
+.mticon-warningsnow:before {
+  content: "\e06d";
+}
+.mticon-warningthunderstorm:before {
+  content: "\e06e";
+}
+.mticon-warningtornado:before {
+  content: "\e06f";
+}
+.mticon-warningwind:before {
+  content: "\e070";
+}
+.mticon-watervapor:before {
+  content: "\e071";
+}
+.mticon-weather:before {
+  content: "\e072";
+}
+.mticon-weathercat:before {
+  content: "\e073";
+}
+.mticon-webcam:before {
+  content: "\e074";
+}
+.mticon-week:before {
+  content: "\e075";
+}
+.mticon-wetdays:before {
+  content: "\e076";
+}
+.mticon-wind:before {
+  content: "\e077";
+}
+.mticon-winddirection:before {
+  content: "\e078";
+}
+.mticon-wmr90ablack:before {
+  content: "\e079";
+}
+.mticon-wmr200black:before {
+  content: "\e07a";
+}
+.mticon-wnw:before {
+  content: "\e07b";
+}
+.mticon-world:before {
+  content: "\e07c";
+}
+.mticon-ws5300black:before {
+  content: "\e07d";
+}
+.mticon-wsw:before {
+  content: "\e07e";
+}
+.mticon-xaxis:before {
+  content: "\e07f";
+}
+.mticon-yaxis:before {
+  content: "\e080";
+}
+.mticon-davisvueblack:before {
+  content: "\30";
+}
+.mticon-day:before {
+  content: "\e081";
+}

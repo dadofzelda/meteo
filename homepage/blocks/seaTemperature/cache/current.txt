@@ -1,0 +1,1 @@
+[{"current":" <span>7.4","title":"Gothenburg","thisMonthMax":"9.8","thisMonthAvg":"6.7","thisMonthMin":"3.6"}]

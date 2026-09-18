@@ -1,0 +1,63 @@
+<?php
+
+$station[] = "OPTU; Turbat International, Turbo";
+$station[] = "SKAR; El Eden, Armenia";
+$station[] = "SKAS; Tres De Mayo, Puerto Asis";
+$station[] = "SKBC; Las Flores, El Banco";
+$station[] = "SKBG; Palonegro, Bucaramanga";
+$station[] = "SKBO; Eldorado International, Bogota";
+$station[] = "SKBQ; Ernesto Cortissoz, Barranquilla";
+$station[] = "SKBS; Jose Celestino Mutis, Bahia Solano";
+$station[] = "SKBU; Gerardo Tobar Lopez, Buenaventura";
+$station[] = "SKCC; Camilo Daza, Cucuta";
+$station[] = "SKCD; Mandinga, Condoto";
+$station[] = "SKCG; Rafael Nunez, Cartagena";
+$station[] = "SKCL; Alfonso Bonilla Aragon International, Cali";
+$station[] = "SKCO; La Florida, Tumaco";
+$station[] = "SKCZ; Las Brujas, Corozal";
+$station[] = "SKEJ; Yariguies, Barrancabermeja";
+$station[] = "SKFL; Gustavo Artunduaga Paredes, Florencia";
+$station[] = "SKGI; Santiago Vila, Girardot";
+$station[] = "SKGO; Santa Ana, Cartago";
+$station[] = "SKGP; Guapi, Guapi";
+$station[] = "SKGY; Guaymaral, Guaymaral";
+$station[] = "SKIB; Perales, Ibague";
+$station[] = "SKIP; San Luis, Ipiales";
+$station[] = "SKLC; Antonio Roldan Betancourt, Carepa";
+$station[] = "SKLM; La Mina, La Mina";
+$station[] = "SKLT; Alfredo Vasquez Cobo, Leticia";
+$station[] = "SKMD; Olaya Herrera, Medellin";
+$station[] = "SKMG; Baracoa, Magangue";
+$station[] = "SKMR; Los Garzones, Monteria";
+$station[] = "SKMU; Fabio Alberto Leon Bentley, Mitu";
+$station[] = "SKMZ; La Nubia, Manizales";
+$station[] = "SKNV; Benito Salas, Neiva";
+$station[] = "SKOC; Aguas Claras, Ocana";
+$station[] = "SKOT; Otu, Otu";
+$station[] = "SKPB; Puerto Bolivar, Puerto Bolivar";
+$station[] = "SKPC; Puerto Carreno, Puerto Carreno";
+$station[] = "SKPE; Matecana, Pereira";
+$station[] = "SKPI; Pitalito, Pitalito";
+$station[] = "SKPP; Guillermo Leon Valencia, Popayan";
+$station[] = "SKPS; Antonio Narino, Pasto";
+$station[] = "SKPV; El Embrujo, Providencia";
+$station[] = "SKQU; Mariquita, Mariquita";
+$station[] = "SKRG; Jose Maria Cordova, Rio Negro";
+$station[] = "SKRH; Almirante Padilla, Rio Hacha";
+$station[] = "SKSA; Los Colonizadores, Saravena";
+$station[] = "SKSJ; Jorge E Gonzalez Torres, San Jose Del Guaviare";
+$station[] = "SKSM; Simon Bolivar, Santa Marta";
+$station[] = "SKSP; Gustavo Rojas Pinilla, San Andres Island";
+$station[] = "SKSV; Eduardo Falla Solano, San Vincente De Caguan";
+$station[] = "SKTD; Trinidad, Trinidad";
+$station[] = "SKTM; Tame, Tame";
+$station[] = "SKTU; Gonzalo Mejia, Turbo";
+$station[] = "SKUC; Santiago Perez, Arauca";
+$station[] = "SKUI; El Carano, Quibdo";
+$station[] = "SKUL; Farfan, Tulua";
+$station[] = "SKVP; Alfonso Lopez Pumarejo, Valledupar";
+$station[] = "SKVV; Vanguardia, Villavicencio";
+$station[] = "SKYP; El Yopal, El Yopal";
+
+
+?>

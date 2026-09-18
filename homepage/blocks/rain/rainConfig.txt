@@ -1,0 +1,21 @@
+{"version":7.1,"name":"Rain","namespace":"rain","variables":[
+    
+    {"variable":"todayMaxMM","desc":"This block works as follows. First it checks if you have at least one year of data in the database - in other words, if it can find average precipitation for every single day in the year. If yes, then it will calculate the average precipitation for each day in the year and the gauges will show the percentage rain for the corresponding period. If you do not have one year of data yet, then it will use the maximum values you set here. If however, you want to always show the sums in the gauges and not use the percentages set the last parameter in this settings to false.<br><br>Maximum gauge value for daily precipitation when mm selected.","default":"100"},
+    
+    {"variable":"monthMaxMM","desc":"Maximum gauge value for monthly precipitation when mm selected.","default":"200"},
+    
+    {"variable":"yearMaxMM","desc":"Maximum gauge value for annual precipitation when mm selected.","default":"750"},
+    
+    {"variable":"todayMaxIN","desc":"Maximum gauge value for daily precipitation when inches selected.","default":"4"},
+    
+    {"variable":"monthMaxIN","desc":"Maximum gauge value for monthly precipitation when inches selected.","default":"10"},
+    
+    {"variable":"yearMaxIN","desc":"Maximum gauge value for annual precipitation when inches selected.","default":"30"},
+    
+    {"variable":"usePercentages","desc":"Show comparison to average period if available.","default":"true"},
+
+    {"variable":"seasonsREnabled","desc":"Show rain this season - use this if you want to show rain since a particular month other than January.","default":"false"},
+
+    {"variable":"seasonRStart","desc":"Specify the month when raining season begins (if the above is enabled, Jan=1, Dec=12).","default":"6"}
+    
+]}

@@ -1,0 +1,13 @@
+{"version":10.0,"name":"Station Data","namespace":"stationData", "variables":[
+    
+    {"variable":"defaultStats","desc":"Default loaded interval - options: today, yesterday, 1h, 24h, thisMonth, thisYear, last365, alltime, normal","default":"today"},
+    
+    {"variable":"showStationDataHeading","desc":"Show block heading","default":"false"},
+    
+    {"variable":"stationDataShowBftW","desc":"Show beaufort scale below wind speed","default":"true"},
+    
+    {"variable":"stationDataShowBftG","desc":"Show beaufort scale below wind gust","default":"true"},
+
+    {"variable":"showNow","desc":"Show current conditions instead of averages","default":"false"}
+    
+]}

@@ -1,0 +1,14 @@
+# Secrets - never commit real credentials. See config.php.example for the template.
+config.php
+
+# Runtime-generated cache, logs and live data dumps (regenerated automatically by the site)
+cache/*.txt
+meteohub/*.txt
+meteohub/*.xml
+error_log
+**/error_log
+*.test
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
