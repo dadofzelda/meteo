@@ -913,7 +913,7 @@
         // get latest date from cache file
         $cacheRaw = file_get_contents($base."cache/apiCache.txt");
         $cache = json_decode($cacheRaw,true);
-        if(isset($latestCacheDate) && is_array($cache['timestamp'])){
+        if(is_array($cache['timestamp'] ?? null)){
             $latestCacheDate = $cache['timestamp'][count($cache['timestamp'])-1];
             if (time()-$latestCacheDate > 60 * 30) {
                 unlink($base."cache/apiCache.txt");
