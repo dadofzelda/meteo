@@ -12,3 +12,4 @@ error_log
 # OS/editor cruft
 .DS_Store
 Thumbs.db
+deploy.env
