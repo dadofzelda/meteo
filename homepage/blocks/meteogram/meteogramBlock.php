@@ -55,11 +55,12 @@
 		</div>
 	</div>
 	<script src="https://code.highcharts.com/modules/windbarb.js"></script>
+	<?php $utcOffsetHours = (new DateTime())->getOffset() / 3600; ?>
 	<script>
 		Highcharts.setOptions({
 			global: {
 				useUTC: false, 
-				timezoneOffset: <?php echo $offset*-60?> 
+				timezoneOffset: <?php echo $utcOffsetHours*-60?> 
 			},
 			lang: {
 				months: ['<?php echo lang('january','c')?>', '<?php echo lang('february','c')?>', '<?php echo lang('march','c')?>', '<?php echo lang('april','c')?>', '<?php echo lang('may','c')?>', '<?php echo lang('june','c')?>', '<?php echo lang('july','c')?>', '<?php echo lang('august','c')?>', '<?php echo lang('september','c')?>', '<?php echo lang('october','c')?>', '<?php echo lang('november','c')?>', '<?php echo lang('december','c')?>'],
