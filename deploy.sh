@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #
-# Deploy git-tracked files in this repo to the live site over plain FTP.
+# Deploy git-tracked files in this repo to the live site over explicit FTPS
+# (encrypted control + data channel, confirmed supported on this account's
+# FTP server).
 #
 # Usage:
 #   ./deploy.sh                  # upload every git-tracked file
@@ -57,6 +59,7 @@ for f in "${FILES[@]}"; do
     fi
     echo "  uploading: $f"
     curl --silent --show-error --ftp-create-dirs \
+        --ftp-ssl-reqd --ssl-reqd \
         --user "${FTP_USER}:${FTP_PASS}" \
         -T "$f" \
         "ftp://${FTP_HOST}${remote}"
