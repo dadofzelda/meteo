@@ -89,6 +89,9 @@
             ORDER BY DateTime
     	"
     	);
+    	$windsYesterday = array();
+    	$bearingsYesterday = array();
+    	$directionYesterday = array();
     	while($row = mysqli_fetch_array($result)){
             $thisTime = date($timeFormat,strtotime($row['DateTime']));
             // max T
@@ -254,7 +257,7 @@
 
             $yesterday['R'] = $row['R'];
         }
-        $yesterday['avgW'] = array_sum($windsYesterday)/count($windsYesterday);
+        $yesterday['avgW'] = count($windsYesterday)>0 ? array_sum($windsYesterday)/count($windsYesterday) : 0;
         $yesterday['avgB'] = avgWind($bearingsYesterday);
         $yesterday['dominantWind'] = windAbb($yesterday['avgB']);
         $yesterday['direction'] = $directionYesterday;
