@@ -218,7 +218,7 @@
 			$.each(activity.datasets, function (i, dataset) {
 
 				// Add X values
-				dataset.data = Highcharts.map(dataset.data, function (val, j) {
+				dataset.data = dataset.data.map(function (val, j) {
 					return [activity.xData[j], val];
 				});
 
