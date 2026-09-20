@@ -241,12 +241,12 @@
 		$visibilityMI = "> 6";
 	}
 	
-	if($visibilityKM>100){       
-		$visibilityKM = $visibilityKM/1000;              
-		$visibilityMI = round($visibilityMI/1000, 1);  
+	if(is_numeric($visibilityKM) && $visibilityKM>100){
+		$visibilityKM = $visibilityKM/1000;
+		$visibilityMI = round($visibilityMI/1000, 1);
 	}
-	if($visibilityMI>100){        
-		$visibilityMI = round($visibilityMI/1000, 1); 
+	if(is_numeric($visibilityMI) && $visibilityMI>100){
+		$visibilityMI = round($visibilityMI/1000, 1);
 	}
 	
 	
