@@ -741,13 +741,29 @@ Meteogram.prototype.parseYrData = function () {
 // On DOM ready...
 
 // Set the hash to the yr.no URL we want to parse
+jQuery(window).on("load", function () {
 if (!location.hash) {
 					location.hash = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=<?php echo $stationLat?>&lon=<?php echo $stationLon?>';
 				}
 				const url = location.hash.substr(1);
 $.ajax({url: url, 
 					success: json => {
-						window.meteogram = new Meteogram(json, 'containerMeteogram');
+						function whenWindbarbReady(cb, attempts) {
+							attempts = attempts || 0;
+							if (Highcharts.seriesTypes && Highcharts.seriesTypes.windbarb) {
+								cb();
+							} else if (attempts < 40) {
+								// windbarb module (loaded separately, possibly async elsewhere
+								// on the page) hasn't registered yet - poll briefly instead of
+								// racing the chart construction against its load.
+								setTimeout(function () { whenWindbarbReady(cb, attempts + 1); }, 50);
+							} else {
+								window.meteogram = new Meteogram(json, 'containerMeteogram');
+							}
+						}
+						whenWindbarbReady(function () {
+							window.meteogram = new Meteogram(json, 'containerMeteogram');
+						});
 					},
 					headers: {
 						// Override the Content-Type to avoid preflight problems with CORS
@@ -755,6 +771,7 @@ $.ajax({url: url,
 						'Content-Type': 'text/plain'
 					}
 				});
+	}); // end $(window).on("load", ...) - wait for all scripts (incl. windbarb module) before building the chart
 function convertTemp(val){
 	unit = "<?php echo strtolower($displayTempUnits)?>";
 	if(unit == "F"){
