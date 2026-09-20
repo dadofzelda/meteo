@@ -142,6 +142,7 @@
 			$temporaryContent[] = ">> current conditions";
 			$temporaryContent[] = "#default(globalMap)";
 			$temporaryContent[] = "#default(metar)";
+			$temporaryContent[] = "#default(viva)";
 		$menuItems['weather']['content'] = implode("\n",$temporaryContent);
 
 		$menuItems['climate']['name'] = "climate";
@@ -213,6 +214,7 @@
 	$defaultSpecs['reports'] = array("pages/station/reportSelector.php","reports","mticon-summary");
 	$defaultSpecs['outlook'] = array("pages/forecast/index.php","outlook","mticon-outlook");
 	$defaultSpecs['metar'] = array("pages/metar/index.php","metar","fa fa-plane");
+	$defaultSpecs['viva'] = array("pages/viva/index.php","viva marine data","fa fa-ship");
 	$defaultSpecs['globalMap'] = array("pages/maps/global.php","global map","fa fa-globe");
 	$defaultSpecs['climateMap'] = array("pages/climate/map.php","climate map","mticon-map");
 	$defaultSpecs['moonPhase'] = array("pages/astronomy/moonPhase.php","moon phase","mticon-moon");

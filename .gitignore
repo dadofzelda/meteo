@@ -15,3 +15,5 @@ Thumbs.db
 deploy.env
 install/googleMapsKey.txt
 admin/importData/*.csv
+homepage/blocks/vivaStation/cache/*.json
+pages/viva/cache/*.json
