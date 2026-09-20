@@ -337,7 +337,8 @@
 	}
 	if(count($firstFrostDays)>0){
 		$temporary = round(array_sum($firstFrostDays)/count($firstFrostDays));
-		$averageFirstFrost = DateTime::createFromFormat('z', $temporary);
+		$averageFirstFrost = new DateTime(date("Y")."-01-01");
+		$averageFirstFrost->modify("+".$temporary." days");
 		$averageFirstFrostDay = $averageFirstFrost->format('j');
 		$averageFirstFrostMonth = $averageFirstFrost->format('n');
 		$averageFirstFrost = $averageFirstFrostDay." ".lang('month'.$averageFirstFrostMonth,'c');
@@ -348,7 +349,8 @@
 	}
 	if(count($lastFrostDays)>0){
 		$temporary = round(array_sum($lastFrostDays)/count($lastFrostDays));
-		$averageLastFrost = DateTime::createFromFormat('z', $temporary);
+		$averageLastFrost = new DateTime(date("Y")."-01-01");
+		$averageLastFrost->modify("+".$temporary." days");
 		$averageLastFrostDay = $averageLastFrost->format('j');
 		$averageLastFrostMonth = $averageLastFrost->format('n');
 		$averageLastFrost = $averageLastFrostDay." ".lang('month'.$averageLastFrostMonth,'c');

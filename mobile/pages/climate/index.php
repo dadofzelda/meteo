@@ -4311,7 +4311,8 @@
 										echo number_format(max($daylengths_year), 0, ".", "") . " min<br>";
 										echo time_conversion_h(max($daylengths_year)) . " h " . time_conversion_min(max($daylengths_year)). " min<br>";
 										$tmp = array_keys($daylengths_year, max($daylengths_year));
-										$temporary_date = DateTime::createFromFormat('z', $tmp[0]);
+										$temporary_date = new DateTime(date("Y")."-01-01");
+										$temporary_date->modify("+".$tmp[0]." days");
 										echo "(" . $temporary_date->format('j. n.') . ")<br>";
 										echo "<span class='inlinesparklinepie_sun'>" . number_format(max($daylengths_year), 0, ".", "") . "," . (1440 - number_format(max($daylengths_year), 0, ".", "")) . "</span>";
 									?></b>
@@ -4321,7 +4322,8 @@
 										echo number_format(min($daylengths_year), 0, ".", "") . " min<br>";
 										echo time_conversion_h(min($daylengths_year)) . " h " . time_conversion_min(min($daylengths_year)). " min<br>";
 										$tmp = array_keys($daylengths_year, min($daylengths_year));
-										$temporary_date = DateTime::createFromFormat('z', $tmp[0]);
+										$temporary_date = new DateTime(date("Y")."-01-01");
+										$temporary_date->modify("+".$tmp[0]." days");
 										echo "(" . $temporary_date->format('j. n.') . ")<br>";
 										echo "<span class='inlinesparklinepie_sun'>" . number_format(min($daylengths_year), 0, ".", "") . "," . (1440 - number_format(min($daylengths_year), 0, ".", "")) . "</span>";
 									?></b>
