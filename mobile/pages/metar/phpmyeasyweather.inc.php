@@ -415,7 +415,7 @@ function HMSmaker($item) {
          $sec = floor((($item-$deg)*60 - floor(($item-$deg)*60))*60);
          if ($min < 10) $min = "0" . $min;
          if ($sec < 10) $sec = "0" . $sec;
-         return $minus . $deg . "�" . $min . "'" . $sec . "\"";
+         return $minus . $deg . "&deg;" . $min . "'" . $sec . "\"";
 }
 function getStationInfo($ICAO) {
          global $path_to_icao_db;
