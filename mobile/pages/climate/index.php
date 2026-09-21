@@ -890,7 +890,8 @@
 		<title><?php echo lang('climate','c')?></title>
 		
 		<?php metaHeader()?>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<?php echo $googleMapsAPIKey?>"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script type="text/javascript" src="<?php echo $pageURL.$path?>scripts/highcharts.js"></script>
 		<script type="text/javascript" src="<?php echo $pageURL.$path?>scripts/highcharts-more.js"></script>
 		<script type="text/javascript" src="<?php echo $pageURL.$path?>scripts/exporting.js"></script>
@@ -4549,23 +4550,13 @@
 			<br>
 		</div>		
 		<script> // map
-			var map;
-			var position = new google.maps.LatLng(<?php echo $lat?>, <?php echo $lon?>);
-			var marker;
-			function initialize() {
-				var mapOptions = {
-					zoom: 8,
-					center: position,
-					mapTypeId: google.maps.MapTypeId.HYBRID
-				};	
-				map = new google.maps.Map(document.getElementById('map'), mapOptions);
-				marker = new google.maps.Marker({
-					map:map,
-					animation: google.maps.Animation.DROP,
-					position: position
-				});
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
+			var position = [<?php echo $lat?>, <?php echo $lon?>];
+			var map = L.map('map').setView(position, 8);
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+				maxZoom: 19
+			}).addTo(map);
+			L.marker(position).addTo(map);
 		</script>
 		<script type="text/javascript"> //graphs
 			$(function () {

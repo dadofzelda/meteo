@@ -71,7 +71,6 @@
 		<title><?php echo $pageName?></title>
 		<?php metaHeader()?>
 		<meta name="description" content="<?php echo $pageDesc?>">
-		<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $googleMapsAPIKey?>"></script>
 		<script src="//code.highcharts.com/stock/highstock.js"></script>
 		<script src="//code.highcharts.com/stock/highcharts-more.js"></script>
 		<?php include("homepage/css/style.php");?>

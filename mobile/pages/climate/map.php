@@ -33,12 +33,14 @@
 	<head>
 		<title><?php echo lang('climate','c')?></title>
 		<?php metaHeader()?>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<?php echo $googleMapsAPIKey?>"></script>
-		<script src="<?php echo $pageURL.$path?>scripts/infobox.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" integrity="sha512-ENrTWqddXrLJsQS2A86QmvA17PkJ0GVm1bqj5aTgpeMAfDKN2+SIOLpKG8R/6KkimnhTb+VW5qqUHB/r1zaRgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" integrity="sha512-fYyZwU1wU0QWB4Yutd/Pvhy5J1oWAwFXun1pt+Bps04WSe4Aq6tyHlT4+MHSJhD8JlLfgLuC4CbCnX5KHSjyCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js" integrity="sha512-TiMWaqipFi2Vqt4ugRzsF8oRoGFlFFuqIi30FFxEPNw58Ov9mOy6LgC05ysfkxwLE0xVeZtmr92wVg9siAFRWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="climate_json.php"></script>
-		<script src="../../../scripts/markercluster.js"></script>
 		<script src="../../../scripts/datatable.js"></script>
-		
+
 		<style>
 			#map {
 				width: 100%;
@@ -51,17 +53,17 @@
 				color: black;
 				text-align: center;
 			}
-			.infoBox {
-				opacity:1;
-				min-width: 400px;
-				border-radius: 20px 20px 20px 20px;
-				padding-top: 10px;
-				padding-bottom: 15px;
-				padding-left: 10px;
-				padding-right: 10px;
-				margin-left: 10px;
-				margin-bottom: 15px;
-				z-Index:9999;
+			.climate-marker {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: #000000;
+				opacity: 0.8;
+				border: 4px solid #ffffff;
+				box-sizing: border-box;
+			}
+			.leaflet-popup-content {
+				min-width: 380px;
 			}
 			.boxtitle {
 				font-size:16pt; 
@@ -99,51 +101,20 @@
 			<div id="map"></div>
 		</div>
 		<script>
-			infobox = new InfoBox({	
-				content: document.getElementById("infobox"),
-				disableAutoPan: false,
-				alignBottom: false,
-				zIndex: 10,
-				maxWidth: 0,
-				boxStyle: {
-					opacity: 0.9,
-					background: '#000000',
-					color: '#ffffff',
-				},
-				infoBoxClearance: new google.maps.Size(3, 3),
-				enableEventPropagation: false
-			});
-			 
-			var styles = [];
-			var gmarkers = [];
-
-			var markerClusterer = null;
 			var map = null;
-			var imageUrl = 'https://chart.apis.google.com/chart?cht=mm&chs=24x32&' +'chco=FFFFFF,008CFF,000000&ext=.png';
+			var markerClusterGroup = null;
+			var climateIcon = L.divIcon({className: 'climate-marker', iconSize: [20, 20]});
 
 			function refreshMap() {
-				var markers = [];
+				markerClusterGroup = L.markerClusterGroup({
+					maxClusterRadius: 40,
+					disableClusteringAtZoom: 8
+				});
 
 				for (var i = 0; i < json.length; ++i) {
-					var latLng = new google.maps.LatLng(json[i].lat,json[i].lon);
-					icon = {
-						path: google.maps.SymbolPath.CIRCLE,
-						scale: 10,
-						fillOpacity: 0.8,
-						fillColor: "#000000",
-						strokeOpacity: 0.7,
-						strokeColor: '#FFFFFF',
-						strokeWeight: 4,
-					}
-					var marker = new google.maps.Marker({
-						position: latLng,
-						title: json[i].name,
-						icon: icon
-					});
-					google.maps.event.addListener(marker, 'click', (function(marker, i) {
-						return function() {		
-							infobox.open(map, marker);
-							longitude = json[i].lon;
+					var marker = L.marker([json[i].lat, json[i].lon], {icon: climateIcon, title: json[i].name});
+
+					longitude = json[i].lon;
 							latitude = json[i].lat;
 							if(latitude>=0){
 								latitude_text = Math.round(latitude*100)/100 + " <?php echo lang('coordN','u')?>";
@@ -263,69 +234,26 @@
 							}
 							content += "</tr></table></center>";
 							content += "<div style='text-align:center;width:100%;font-size:14px;'><a href='index.php?q="+id+"'><input type='button' class='button' value='<?php echo lang("select",'c')?>'></a></div>";
-							infobox.setContent(content);
-							map.panTo(marker.getPosition());
-							}
-						}
-					)(marker, i)); 
-				  markers.push(marker);
+
+					marker.bindPopup(content);
+					markerClusterGroup.addLayer(marker);
 				}
+				map.addLayer(markerClusterGroup);
 				$('#overlay').hide();
-				markerClusterer = new MarkerClusterer(map, markers, {
-					maxZoom: 8,
-					gridSize: 40,
-					styles: [
-						{
-							textColor: 'black',
-							height: 53,
-							url: "<?php echo $pageURL.$path?>icons/cluster1.png",
-							width: 53
-						},
-						{
-							textColor: 'black',
-							height: 56,
-							url: "<?php echo $pageURL.$path?>icons/cluster2.png",
-							width: 56
-						},
-						{
-							textColor: 'black',
-							height: 66,
-							url: "<?php echo $pageURL.$path?>icons/cluster3.png",
-							width: 66
-						},
-						{
-							textColor: 'black',
-							height: 78,
-							url: "<?php echo $pageURL.$path?>icons/cluster4.png",
-							width: 78
-						},
-						{
-							textColor: 'black',
-							height: 90,
-							url: "<?php echo $pageURL.$path?>icons/cluster5.png",
-							width: 90
-						}
-					],
-					minimumClusterSize:3,
-				});
 			}
 
 			function initialize() {
-				map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 2,
-					center: new google.maps.LatLng(20, 0),
-					mapTypeId: google.maps.MapTypeId.HYBRID
-				});
+				map = L.map('map').setView([20, 0], 2);
+				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+					maxZoom: 19
+				}).addTo(map);
 				refreshMap();
 			}
 
-			function clearClusters(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				markerClusterer.clearMarkers();
-			}
-
-			google.maps.event.addDomListener(window, 'load', initialize);
+			$(function() {
+				initialize();
+			});
 			</script>
 		<?php include("../../footer.php")?>
 	</body>
