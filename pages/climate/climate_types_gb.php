@@ -209,7 +209,7 @@
 		$second = "";
 		$third = "";
 		
-		$patton_threshold = 2.3*$t-0.64*(array_sum($r_winter)/$r)+41;
+		$patton_threshold = 2.3*$t-0.64*($r!=0 ? array_sum($r_winter)/$r : 0)+41;
 
 		// Determine 1st letter
 		if((min($temps)>=18)&&(($r/10)>=$patton_threshold)){

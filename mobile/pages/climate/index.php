@@ -404,6 +404,7 @@
 	}
 
 	// seasons
+	$hemisphere = "N";
 	if ($lat > 0) {
 		$hemisphere = "N";
 	}
@@ -835,6 +836,7 @@
 	}
 
 	// calculate spherical coordinates
+	$coordinate1 = 0;
 	if ($lat > 0) {
 		$coordinate1 = (($lat) / 90) * (3.14159 * 0.5);
 	}

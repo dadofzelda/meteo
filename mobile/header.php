@@ -373,7 +373,7 @@
 	<div id="header" style="position:relative;<?php echo $mobileHeaderConditionsString?>">
 	<?php
 			if(isset($headerConditions)){
-				if($headerConditions){
+				if($headerConditions && $con instanceof mysqli){
 					$resultHeader = mysqli_query($con,"
 						SELECT T,H,P,W,D,S,R
 						FROM alldata
