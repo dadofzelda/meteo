@@ -199,12 +199,12 @@
 						$.each(results, function(i, r){
 							var hist = r.data && r.data.GetHistoryResult && r.data.GetHistoryResult.StationHistory;
 							if(!hist){ return; }
-							var seriesData = $.map(hist, function(pt){
+							var seriesData = hist.map(function(pt){
 								var t = Date.parse(pt.Time.replace(" ","T"));
 								var v = parseFloat(pt.Value);
 								if(isNaN(v)){ return null; }
 								return [t, v];
-							});
+							}).filter(function(pair){ return pair !== null; });
 							series.push({name: r.station.name, data: seriesData});
 						});
 
