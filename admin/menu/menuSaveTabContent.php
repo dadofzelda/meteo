@@ -20,17 +20,6 @@
 	
 	file_put_contents("menuItems.txt",json_encode($menuItems));
 
-	// try updating the menu
-	$updatedMenu = file_get_contents($meteotemplateURL."/template/menu.txt");
-    if($updatedMenu==""){
-        $updatedMenu = curlMain($meteotemplateURL."/template/menu.txt",5);
-    }
-	if($updatedMenu!=""){     
-        if(is_writable("../../menu.php")){
-            file_put_contents("../../menu.php",$updatedMenu);
-        }
-    }
-	
 	header("Location: menuTabs.php");
 ?>
 	

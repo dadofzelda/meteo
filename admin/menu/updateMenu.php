@@ -12,7 +12,7 @@
     if($updatedMenu==""){
         $updatedMenu = curlMain($meteotemplateURL."/template/menu.txt",5);
     }
-	if($updatedMenu!=""){     
+	if($updatedMenu!="" && strpos(ltrim($updatedMenu),"<?php")===0){
         if(is_writable("../../menu.php")){
             file_put_contents("../../menu.php",$updatedMenu);
             echo "<script>alert('Menu updated!');location='".$pageURL.$path."admin/menu/menuTabs.php';</script>";
@@ -22,7 +22,7 @@
         }
     }
     else{
-        echo "<script>alert('Menu data N/A.');location='".$pageURL.$path."admin/menu/menuTabs.php';</script>";
+        echo "<script>alert('Menu data N/A or not valid PHP - not applied.');location='".$pageURL.$path."admin/menu/menuTabs.php';</script>";
     }
 	
 ?>
