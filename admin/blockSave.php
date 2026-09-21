@@ -13,6 +13,10 @@
 	require_once("../config.php");
 
 	$blockNameSpace = $_POST['id'];
+	if(!preg_match('/^[A-Za-z0-9_]+$/', $blockNameSpace)){
+		echo "<script>alert('Invalid block name.');document.location = 'blockSetup.php';</script>";
+		die();
+	}
 	$parameters = explode(',',$_POST['parameters']);
 
 	$string = "<?php".PHP_EOL;
@@ -25,11 +29,20 @@
 	$string .= PHP_EOL;
 
 	foreach($parameters as $parameter){
-		if(trim($_POST[$parameter])=="true" || trim($_POST[$parameter])=="false"){
-			$string .= "$".$parameter." = ".$_POST[$parameter].";".PHP_EOL;
+		// only allow valid PHP variable-name characters - this token gets
+		// written into generated code unquoted, right after a bare "$"
+		if(!preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $parameter)){
+			continue;
+		}
+		$value = $_POST[$parameter];
+		if(trim($value)=="true" || trim($value)=="false"){
+			$string .= "$".$parameter." = ".trim($value).";".PHP_EOL;
 		}
 		else{
-			$string .= "$".$parameter." = '".$_POST[$parameter]."';".PHP_EOL;
+			// var_export() safely escapes the value for use as a PHP string
+			// literal - the previous manual '...' concatenation let a value
+			// containing a single quote break out and inject arbitrary code
+			$string .= "$".$parameter." = ".var_export($value, true).";".PHP_EOL;
 		}
 	}
 
