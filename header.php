@@ -708,6 +708,8 @@
 		global $headerConditionsColor;
 		global $headerConditionsShadowColor;
 		global $headerConditionsInterval;
+		global $weatherWarningsEnabled;
+		global $weatherWarningsCounties;
 		global $baseURL;
 		global $pageURL;
 		global $path;
@@ -771,7 +773,7 @@
 		?>
 		<?php
 			if(isset($headerConditions)){
-				if($headerConditions){
+				if($headerConditions && $con instanceof mysqli){
 					$resultHeader = mysqli_query($con,"
 						SELECT T,H,P,W,D,S,R
 						FROM alldata
@@ -917,6 +919,35 @@
 			}
 		?>
 	</div>
+	<?php
+		if(isset($weatherWarningsEnabled) && $weatherWarningsEnabled){
+			$activeWeatherWarnings = getActiveWeatherWarnings();
+			if(count($activeWeatherWarnings) > 0){
+	?>
+			<div id="weatherWarningBanner" style="width:100%">
+				<?php
+					foreach($activeWeatherWarnings as $warningIndex => $warn){
+						$warningBg = $color_schemes[$warn['levelColor']]['700'];
+						$warningFont = $color_schemes[$warn['levelColor']]['font700'];
+				?>
+						<div style="background:#<?php echo $warningBg?>;color:#<?php echo $warningFont?>;padding:8px 15px;font-weight:bold;font-size:1.05em;border-bottom:1px solid rgba(0,0,0,0.15)">
+							<span class="fa fa-exclamation-triangle"></span>
+							<?php echo mb_strtoupper($warn['event'],"UTF-8")?> (<?php echo $warn['levelName']?>) &ndash; <?php echo htmlspecialchars($warn['county'])?>
+							<?php if($warn['description']!=""){?>
+								<span style="cursor:pointer;text-decoration:underline;float:right;font-size:0.9em" onclick="$('#weatherWarningText<?php echo $warningIndex?>').slideToggle();">Visa mer &#9662;</span>
+								<div id="weatherWarningText<?php echo $warningIndex?>" style="display:none;font-weight:normal;margin-top:8px;font-size:0.95em;clear:both;padding-top:8px">
+									<?php echo htmlspecialchars($warn['description'])?>
+								</div>
+							<?php }?>
+						</div>
+				<?php
+					}
+				?>
+			</div>
+	<?php
+			}
+		}
+	?>
 	<?php
 		if($interactiveBanner){
 	?>

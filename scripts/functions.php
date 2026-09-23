@@ -1300,5 +1300,100 @@
 		}
 	}
 
+	############################################################################
+	#	SMHI weather warnings banner
+	############################################################################
+
+	// Returns active SMHI warnings for the counties in $weatherWarningsCounties,
+	// sorted highest severity first. Cached to disk (see interactiveBanner.txt
+	// above for the same pattern) so we don't hit SMHI on every page load.
+	function getActiveWeatherWarnings(){
+		global $baseURL, $weatherWarningsCounties;
+
+		$cacheFile = $baseURL."cache/vaderVarningar.json";
+		$maxAge = 15 * 60; // 15 minuter - matchar HA-larmets pollingintervall
+
+		if(file_exists($cacheFile)){
+			if(time() - filemtime($cacheFile) > $maxAge){
+				unlink($cacheFile);
+			}
+		}
+		if(file_exists($cacheFile)){
+			$rawWarnings = file_get_contents($cacheFile);
+		}
+		else{
+			$warningsURL = "https://opendata-download-warnings.smhi.se/ibww/api/version/1/warning.json";
+			$rawWarnings = curlMain($warningsURL,5);
+			if($rawWarnings==""){
+				$rawWarnings = file_get_contents($warningsURL);
+			}
+			if($rawWarnings!=""){
+				file_put_contents($cacheFile,$rawWarnings);
+			}
+		}
+
+		if($rawWarnings==""){
+			return array();
+		}
+
+		$warnings = json_decode($rawWarnings,true);
+		if(!is_array($warnings)){
+			return array();
+		}
+
+		$levelRank = array("MESSAGE"=>0,"YELLOW"=>1,"ORANGE"=>2,"RED"=>3);
+		$levelColor = array("MESSAGE"=>"grey","YELLOW"=>"yellow","ORANGE"=>"orange","RED"=>"red");
+
+		$active = array();
+		foreach($warnings as $warning){
+			if(!isset($warning['warningAreas'])){
+				continue;
+			}
+			foreach($warning['warningAreas'] as $area){
+				$counties = array();
+				if(isset($area['affectedAreas'])){
+					foreach($area['affectedAreas'] as $affected){
+						if(isset($affected['sv'])){
+							$counties[] = $affected['sv'];
+						}
+					}
+				}
+				$match = false;
+				foreach($weatherWarningsCounties as $wantedCounty){
+					if(in_array($wantedCounty,$counties)){
+						$match = true;
+						break;
+					}
+				}
+				if(!$match){
+					continue;
+				}
+				$levelCode = isset($area['warningLevel']['code']) ? $area['warningLevel']['code'] : "MESSAGE";
+				$description = "";
+				if(isset($area['descriptions']) && is_array($area['descriptions'])){
+					foreach($area['descriptions'] as $desc){
+						if(isset($desc['text']['sv'])){
+							$description .= $desc['text']['sv']." ";
+						}
+					}
+				}
+				$active[] = array(
+					"event" => isset($warning['event']['sv']) ? $warning['event']['sv'] : "",
+					"levelCode" => $levelCode,
+					"levelName" => isset($area['warningLevel']['sv']) ? $area['warningLevel']['sv'] : $levelCode,
+					"levelRank" => isset($levelRank[$levelCode]) ? $levelRank[$levelCode] : 0,
+					"levelColor" => isset($levelColor[$levelCode]) ? $levelColor[$levelCode] : "grey",
+					"county" => implode(", ",$counties),
+					"description" => trim($description)
+				);
+			}
+		}
+
+		usort($active,function($a,$b){
+			return $b['levelRank'] - $a['levelRank'];
+		});
+
+		return $active;
+	}
 
 ?>
