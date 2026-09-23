@@ -117,30 +117,30 @@
 		}
 		if($intervalHighT>=$warningHighT){
 			$stationWarningsArray['highTWarning'] = true;
-			$stationWarningsArray['highTWarningText'] = number_format(convertT($intervalHighT),1,".","")."°".$displayTempUnits." ".$intervalText;
+			$stationWarningsArray['highTWarningText'] = lang("high temperature warning","c").": ".number_format(convertT($intervalHighT),1,".","")."°".$displayTempUnits." ".$intervalText;
 			$warningActive = true;
 		}
 		if($intervalLowT<=$warningLowT){
 			$stationWarningsArray['lowTWarning'] = true;
-			$stationWarningsArray['lowTWarningText'] = number_format(convertT($intervalLowT),1,".","")."°".$displayTempUnits." ".$intervalText;
+			$stationWarningsArray['lowTWarningText'] = lang("low temperature warning","c").": ".number_format(convertT($intervalLowT),1,".","")."°".$displayTempUnits." ".$intervalText;
 			$warningActive = true;
 		}
 		if($intervalHighW>=$warningHighW){
 			$stationWarningsArray['highWWarning'] = true;
-			$stationWarningsArray['highWWarningText'] = number_format(convertW($intervalHighW),1,".","")." ".$displayWindUnits." ".$intervalText;
+			$stationWarningsArray['highWWarningText'] = lang("high wind warning","c").": ".number_format(convertW($intervalHighW),1,".","")." ".$displayWindUnits." ".$intervalText;
 			$stationWarningsArray['highWWarningText'] = str_replace("kmh","km/h",$stationWarningsArray['highWWarningText']);
 			$stationWarningsArray['highWWarningText'] = str_replace("ms","m/s",$stationWarningsArray['highWWarningText']);
 			$warningActive = true;
 		}
 		if($intervalHighR>=$warningHighR){
 			$stationWarningsArray['highRWarning'] = true;
-			$stationWarningsArray['highRWarningText'] = number_format(convertR($intervalHighR),$rainWarningDecimals,".","")." ".$displayRainUnits."/".lang('hAbbr','l')." ".$intervalText;
+			$stationWarningsArray['highRWarningText'] = lang("heavy rain warning","c").": ".number_format(convertR($intervalHighR),$rainWarningDecimals,".","")." ".$displayRainUnits."/".lang('hAbbr','l')." ".$intervalText;
 			$warningActive = true;
 		}
 		if($solarSensor){
 			if($intervalHighS>=$warningHighS){
 				$stationWarningsArray['highSWarning'] = true;
-				$stationWarningsArray['highSWarningText'] = number_format(($intervalHighS),1,".","")."W/m2 ".lang("in the last 60 minutes",'l');
+				$stationWarningsArray['highSWarningText'] = lang("intense sun shine warning","c").": ".number_format(($intervalHighS),1,".","")."W/m2 ".lang("in the last 60 minutes",'l');
 				$warningActive = true;
 			}
 		}
