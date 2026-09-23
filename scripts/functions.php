@@ -180,8 +180,19 @@
 		global $lang;
 		$languageRaw = file_get_contents($baseURL."lang/gb.php");
 		$language['gb'] = json_decode($languageRaw,true);
-		$languageRaw = file_get_contents($baseURL."lang/".$lang.".php");
-		$language[$lang] = json_decode($languageRaw,true);
+		// Om $lang är ogiltig/skadad (t.ex. en trasig cookie) finns ingen
+		// lang/<tomt>.php eller lang/<konstigt>.php-fil, file_get_contents()
+		// ger false, och json_decode(false) ger null - vilket kraschade
+		// lang() längre ner (array_key_exists() mot null). Faller nu tillbaka
+		// på redan inladdade gb istället för att krascha hela sidan.
+		$language[$lang] = $language['gb']; // säker fallback, skrivs över nedan om filen är giltig
+		if(is_string($lang) && $lang!="" && file_exists($baseURL."lang/".$lang.".php")){
+			$languageRaw = file_get_contents($baseURL."lang/".$lang.".php");
+			$decoded = json_decode($languageRaw,true);
+			if(is_array($decoded)){
+				$language[$lang] = $decoded;
+			}
+		}
 		return $language;
 	}
 	function mySQLGET($query){
