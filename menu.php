@@ -164,6 +164,7 @@
 			$temporaryContent[] = "#default(sunTimes)";
 			$temporaryContent[] = "#default(solsticeEquinox)";
 			$temporaryContent[] = "#default(annualSolarMax)";
+			$temporaryContent[] = "#default(aurora)";
 			$temporaryContent[] = ">>>";
 			$temporaryContent[] = "#default(dayNight)";
 		$menuItems['astronomy']['content'] = implode("\n",$temporaryContent);
@@ -230,6 +231,7 @@
 	$defaultSpecs['climateIndices'] = array("pages/station/climateIndices.php","station climate","mticon-station");
 	$defaultSpecs['seasons'] = array("pages/station/seasonsIndex.php","seasons","mticon-forecast");
 	$defaultSpecs['annualSolarMax'] = array("pages/astronomy/annualSolarMax.php","maximum potential solar radiation","mticon-sun");
+	$defaultSpecs['aurora'] = array("pages/astronomy/aurora.php","aurora forecast","mticon-nightsky");
 
 	$pluginSpecs = array();
 	$pluginSpecs['airQualityForecastCA'] = array("index.php","air quality","flag(ca)");

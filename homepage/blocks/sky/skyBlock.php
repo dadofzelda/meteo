@@ -64,19 +64,7 @@
 	$aurora = getAuroraForecast();
 	$auroraTier = null;
 	if(isset($aurora['kp'])){
-		$kp = $aurora['kp'];
-		if($kp>=8){
-			$auroraTier = array("label"=>"very good chance","shade"=>"800");
-		}
-		else if($kp>=6){
-			$auroraTier = array("label"=>"good chance","shade"=>"600");
-		}
-		else if($kp>=4){
-			$auroraTier = array("label"=>"possible under a dark sky","shade"=>"400");
-		}
-		else{
-			$auroraTier = array("label"=>"low chance","shade"=>"200");
-		}
+		$auroraTier = getAuroraTier($aurora['kp']);
 	}
 
 ?>
