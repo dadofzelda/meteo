@@ -1525,45 +1525,4 @@
 		return array("label"=>"low chance","shade"=>"200");
 	}
 
-	// NOAA:s OVATION-modell - global norrskenssannolikhetsgrid (1° upplösning,
-	// ~65000 punkter, [lon 0-359, lat -90..90, sannolikhet 0-100]). Samma
-	// fetch+cache-mönster som getAuroraForecast()/getActiveWeatherWarnings().
-	// Filtrering till ett relevant kartutsnitt görs av anroparen (se
-	// pages/astronomy/auroraOvationAjax.php), inte här - den här funktionen
-	// returnerar hela den råa strukturen.
-	function getAuroraOvationGrid(){
-		global $baseURL;
-
-		$cacheFile = $baseURL."cache/auroraOvation.json";
-		$maxAge = 30 * 60;
-
-		if(file_exists($cacheFile)){
-			if(time() - filemtime($cacheFile) > $maxAge){
-				unlink($cacheFile);
-			}
-		}
-		if(file_exists($cacheFile)){
-			$rawGrid = file_get_contents($cacheFile);
-		}
-		else{
-			$gridURL = "https://services.swpc.noaa.gov/json/ovation_aurora_latest.json";
-			$rawGrid = curlMain($gridURL,8);
-			if($rawGrid==""){
-				$rawGrid = file_get_contents($gridURL);
-			}
-			if($rawGrid!=""){
-				file_put_contents($cacheFile,$rawGrid);
-			}
-		}
-
-		if($rawGrid==""){
-			return array();
-		}
-		$data = json_decode($rawGrid,true);
-		if(!is_array($data) || !isset($data['coordinates'])){
-			return array();
-		}
-		return $data;
-	}
-
 ?>

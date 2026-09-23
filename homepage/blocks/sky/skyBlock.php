@@ -7,9 +7,13 @@
 	# 		v1.0 - Sep 23, 2026
 	# 			- initial release
 	#			- soluppgång/nedgång, dagslängd + jämförelse mot gårdagen,
-	#			  månfas, norrskenschans (NOAA Kp-index). Inspirerad av
-	#			  borgabo.se/borgafjalls-vadersida. Använder date_sun_info()
-	#			  istället för deprecated date_sunrise()/date_sunset().
+	#			  månfas. Inspirerad av borgabo.se/borgafjalls-vadersida.
+	#			  Använder date_sun_info() istället för deprecated
+	#			  date_sunrise()/date_sunset().
+	#		v1.1 - Sep 23, 2026
+	#			- norrskenschans flyttad till ett eget block
+	#			  (homepage/blocks/aurora/) - dubblerade annars samma
+	#			  Kp-badge på förstasidan
 
 	// load theme
 	$designTheme = json_decode(file_get_contents("../../css/theme.txt"),true);
@@ -58,15 +62,6 @@
 		$moonIconClass = "mticon-halfmoon";
 	}
 
-	// Norrskenschans - grov uppskattning baserad på NOAA:s Kp-index, se tooltip.
-	// Tröskelvärdena är en approximation för stationens breddgrad (~58°N) -
-	// riktig molntäckning/mörker avgör i praktiken minst lika mycket.
-	$aurora = getAuroraForecast();
-	$auroraTier = null;
-	if(isset($aurora['kp'])){
-		$auroraTier = getAuroraTier($aurora['kp']);
-	}
-
 ?>
 	<style>
 		#<?php echo $blockUID?> .skyTiles{
@@ -98,12 +93,6 @@
 			font-size: 0.8em;
 			opacity: 0.8;
 		}
-		<?php if($auroraTier!==null){?>
-		#<?php echo $blockUID?> .auroraTile{
-			background: #<?php echo $color_schemes['green'][$auroraTier['shade']]?> !important;
-			color: #<?php echo $color_schemes['green']['font'.$auroraTier['shade']]?>;
-		}
-		<?php }?>
 	</style>
 	<div id="<?php echo $blockUID?>">
 		<div class="skyTiles">
@@ -145,13 +134,5 @@
 				<div class="skyTileDelta"><?php echo lang('illuminated')?></div>
 				<div class="skyTileLabel"><?php echo lang($moonPhaseName,'c')?></div>
 			</div>
-			<?php if($auroraTier!==null){?>
-				<div class="skyTile auroraTile tooltip" title="<?php echo lang('the kp-index measures geomagnetic activity on a scale from 0 to 9. higher values increase the chance of seeing the aurora further south. cloud cover and darkness still matter a lot - this is only a rough indicator.','c')?>">
-					<div class="skyTileIcon"><span class="mticon-nightsky"></span></div>
-					<div class="skyTileValue"><?php echo lang($auroraTier['label'],'c')?></div>
-					<div class="skyTileDelta">Kp <?php echo number_format($aurora['kp'],1,".","")?></div>
-					<div class="skyTileLabel"><?php echo lang('aurora chance','c')?></div>
-				</div>
-			<?php }?>
 		</div>
 	</div>
