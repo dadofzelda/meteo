@@ -94,28 +94,28 @@
 	<div id="<?php echo $blockUID?>">
 		<div class="recordsTiles">
 			<?php if(isset($records['maxT'])){?>
-				<div class="recordsTile">
+				<div class="recordsTile tooltip" title="<?php echo lang('highest recorded temperature in the whole measurement history','c')?>">
 					<div class="recordsTileIcon"><span class="mticon-temp"></span></div>
 					<div class="recordsTileValue"><?php echo number_format(convertT($records["maxT"]),1,".","")?><?php echo unitFormatter($displayTempUnits)?></div>
 					<div class="recordsTileLabel"><?php echo lang('highest','c')?></div>
 				</div>
 			<?php }?>
 			<?php if(isset($records['minT'])){?>
-				<div class="recordsTile">
+				<div class="recordsTile tooltip" title="<?php echo lang('lowest recorded temperature in the whole measurement history','c')?>">
 					<div class="recordsTileIcon"><span class="mticon-temp"></span></div>
 					<div class="recordsTileValue"><?php echo number_format(convertT($records["minT"]),1,".","")?><?php echo unitFormatter($displayTempUnits)?></div>
 					<div class="recordsTileLabel"><?php echo lang('lowest','c')?></div>
 				</div>
 			<?php }?>
 			<?php if(isset($records['maxG'])){?>
-				<div class="recordsTile">
+				<div class="recordsTile tooltip" title="<?php echo lang('strongest wind gust ever recorded','c')?>">
 					<div class="recordsTileIcon"><span class="mticon-gust"></span></div>
 					<div class="recordsTileValue"><?php echo number_format(convertW($records['maxG']),1,".","")?> <?php echo unitFormatter($displayWindUnits)?></div>
 					<div class="recordsTileLabel"><?php echo lang('wind gust','c')?></div>
 				</div>
 			<?php }?>
 			<?php if($maxDailyRain!==null){?>
-				<div class="recordsTile">
+				<div class="recordsTile tooltip" title="<?php echo lang('most rain recorded in a single calendar day','c')?>">
 					<div class="recordsTileIcon"><span class="mticon-rain"></span></div>
 					<div class="recordsTileValue"><?php echo number_format(convertR($maxDailyRain),1,".","")?> <?php echo unitFormatter($displayRainUnits)?></div>
 					<div class="recordsTileLabel"><?php echo lang('wettest day','c')?></div>
@@ -123,6 +123,6 @@
 			<?php }?>
 		</div>
 		<?php if(isset($records['sinceDate'])){?>
-			<div class="recordsSince"><?php echo lang('records since','c')?> <?php echo date("Y-m-d",strtotime($records['sinceDate']))?></div>
+			<div class="recordsSince tooltip" title="<?php echo lang('records only cover the period the station has been measuring - earlier extremes are not included','c')?>"><?php echo lang('records since','c')?> <?php echo date("Y-m-d",strtotime($records['sinceDate']))?></div>
 		<?php }?>
 	</div>

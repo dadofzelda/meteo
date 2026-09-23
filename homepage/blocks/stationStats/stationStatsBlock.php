@@ -92,21 +92,21 @@
 	<div id="<?php echo $blockUID?>">
 		<div class="statsTiles">
 			<?php if(isset($stats['totalReadings'])){?>
-				<div class="statsTile">
+				<div class="statsTile tooltip" title="<?php echo lang('a measurement is one reading from the weather station - temperature, wind, rain and more, recorded automatically at regular intervals','c')?>">
 					<div class="statsTileIcon"><span class="fa fa-database"></span></div>
 					<div class="statsTileValue"><?php echo number_format($stats['totalReadings'],0,"."," ")?></div>
 					<div class="statsTileLabel"><?php echo lang('measurements','c')?></div>
 				</div>
 			<?php }?>
 			<?php if(isset($stats['daysMeasured'])){?>
-				<div class="statsTile">
+				<div class="statsTile tooltip" title="<?php echo lang('number of calendar days with at least one measurement recorded','c')?>">
 					<div class="statsTileIcon"><span class="fa fa-calendar"></span></div>
 					<div class="statsTileValue"><?php echo number_format($stats['daysMeasured'],0,"."," ")?></div>
 					<div class="statsTileLabel"><?php echo lang('days','c')?></div>
 				</div>
 			<?php }?>
 			<?php if(isset($stats['lastDate'])){?>
-				<div class="statsTile">
+				<div class="statsTile tooltip" title="<?php echo lang('time since the station last reported a new measurement','c')?>">
 					<div class="statsTileIcon"><span class="fa fa-clock-o"></span></div>
 					<div class="statsTileValue"><?php echo secondsToAgoText(time()-strtotime($stats['lastDate']))?></div>
 					<div class="statsTileLabel"><?php echo lang('ago','c')?></div>
@@ -114,6 +114,6 @@
 			<?php }?>
 		</div>
 		<?php if(isset($stats['firstDate'])){?>
-			<div class="statsSince"><?php echo lang('since','c')?> <?php echo date("Y-m-d",strtotime($stats['firstDate']))?></div>
+			<div class="statsSince tooltip" title="<?php echo lang('date of the first measurement in the archive','c')?>"><?php echo lang('since','c')?> <?php echo date("Y-m-d",strtotime($stats['firstDate']))?></div>
 		<?php }?>
 	</div>

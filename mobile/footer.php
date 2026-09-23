@@ -185,8 +185,8 @@
 					</td>
 					<td style="text-align:right">
 						<select id="userTemperature" class="button">
-							<option value="C">C</option>
-							<option value="F">F</option>
+							<option value="C" <?php echo ($displayTempUnits=="C")?"selected":""?>>C</option>
+							<option value="F" <?php echo ($displayTempUnits=="F")?"selected":""?>>F</option>
 						</select>
 					</td>
 					<td style="width:20%" rowspan="3">
@@ -195,10 +195,10 @@
 					</td>
 					<td style="text-align:right">
 						<select id="userWind" class="button">
-							<option value="kmh">km/h</option>
-							<option value="ms">m/s</option>
-							<option value="mph">mph</option>
-							<option value="kt">kt</option>
+							<option value="kmh" <?php echo ($displayWindUnits=="kmh")?"selected":""?>>km/h</option>
+							<option value="ms" <?php echo ($displayWindUnits=="ms")?"selected":""?>>m/s</option>
+							<option value="mph" <?php echo ($displayWindUnits=="mph")?"selected":""?>>mph</option>
+							<option value="kt" <?php echo ($displayWindUnits=="kt")?"selected":""?>>kt</option>
 						</select>
 					</td>
 				</tr>
@@ -208,8 +208,8 @@
 					</td>
 					<td style="text-align:right">
 						<select id="userRain" class="button">
-							<option value="mm">mm</option>
-							<option value="in">in</option>
+							<option value="mm" <?php echo ($displayRainUnits=="mm")?"selected":""?>>mm</option>
+							<option value="in" <?php echo ($displayRainUnits=="in")?"selected":""?>>in</option>
 						</select>
 					</td>
 					<td style="text-align:left">
@@ -217,9 +217,9 @@
 					</td>
 					<td style="text-align:right">
 						<select id="userPressure" class="button">
-							<option value="hpa">hPa</option>
-							<option value="mmhg">mmHg</option>
-							<option value="inhg">inHg</option>
+							<option value="hpa" <?php echo ($displayPressUnits=="hpa")?"selected":""?>>hPa</option>
+							<option value="mmhg" <?php echo ($displayPressUnits=="mmhg")?"selected":""?>>mmHg</option>
+							<option value="inhg" <?php echo ($displayPressUnits=="inhg")?"selected":""?>>inHg</option>
 						</select>
 					</td>
 				</tr>
@@ -229,8 +229,8 @@
 					</td>
 					<td style="text-align:right">
 						<select id="userCloudbase" class="button">
-							<option value="m">m</option>
-							<option value="ft">ft</option>
+							<option value="m" <?php echo ($displayCloudbaseUnits=="m")?"selected":""?>>m</option>
+							<option value="ft" <?php echo ($displayCloudbaseUnits=="ft")?"selected":""?>>ft</option>
 						</select>
 					</td>
 					<td style="text-align:left">
@@ -238,9 +238,9 @@
 					</td>
 					<td style="text-align:right">
 						<select id="userVisibility" class="button">
-							<option value="m">m</option>
-							<option value="km">km</option>
-							<option value="mi">mi</option>
+							<option value="m" <?php echo ($displayVisibilityUnits=="m")?"selected":""?>>m</option>
+							<option value="km" <?php echo ($displayVisibilityUnits=="km")?"selected":""?>>km</option>
+							<option value="mi" <?php echo ($displayVisibilityUnits=="mi")?"selected":""?>>mi</option>
 						</select>
 					</td>
 				</tr>
