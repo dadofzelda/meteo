@@ -158,8 +158,15 @@
 		$intervals = 118;
 		$moonIcon = round(($img_phase/(1/$intervals)));
 
-		// Get METAR
+		// Get METAR - besökaren kan välja en egen station via inställningsdialogen
+		// (cookie weatherWarningsPrefs), annars adminens $stationMETAR
 		$ICAO = $stationMETAR;
+		if(isset($_COOKIE['weatherWarningsPrefs'])){
+			$userPrefs = json_decode($_COOKIE['weatherWarningsPrefs'],true);
+			if(is_array($userPrefs) && isset($userPrefs['metar']) && trim($userPrefs['metar'])!=""){
+				$ICAO = trim($userPrefs['metar']);
+			}
+		}
 
 		// Interactive banner caching
 		if(file_exists($baseURL."cache/interactiveBanner.txt")){ 

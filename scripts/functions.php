@@ -1307,8 +1307,39 @@
 	// Returns active SMHI warnings for the counties in $weatherWarningsCounties,
 	// sorted highest severity first. Cached to disk (see interactiveBanner.txt
 	// above for the same pattern) so we don't hit SMHI on every page load.
+	// De 21 svenska länen, exakt som SMHI stavar dem (verifierat mot
+	// SMHIs metadata/area.json, code SWE_COUNTIES). Delad mellan
+	// getActiveWeatherWarnings() och inställningsdialogens kryssrutor.
+	function getSwedishCounties(){
+		return array(
+			"Blekinge län","Dalarnas län","Gotlands län","Gävleborgs län",
+			"Hallands län","Jämtlands län","Jönköpings län","Kalmar län",
+			"Kronobergs län","Norrbottens län","Skåne län","Stockholms län",
+			"Södermanlands län","Uppsala län","Värmlands län","Västerbottens län",
+			"Västernorrlands län","Västmanlands län","Västra Götalands län",
+			"Örebro län","Östergötlands län"
+		);
+	}
+
+	// Besökaren kan välja egna län via inställningsdialogen (cookie
+	// weatherWarningsPrefs, satt av userWeatherPrefs.php). Faller
+	// tillbaka på adminens $weatherWarningsCounties om ingen cookie finns
+	// eller om den är tom.
+	function getWeatherWarningsCounties(){
+		global $weatherWarningsCounties;
+
+		if(isset($_COOKIE['weatherWarningsPrefs'])){
+			$prefs = json_decode($_COOKIE['weatherWarningsPrefs'],true);
+			if(is_array($prefs) && isset($prefs['counties']) && is_array($prefs['counties']) && count($prefs['counties']) > 0){
+				return $prefs['counties'];
+			}
+		}
+		return $weatherWarningsCounties;
+	}
+
 	function getActiveWeatherWarnings(){
-		global $baseURL, $weatherWarningsCounties;
+		global $baseURL;
+		$weatherWarningsCounties = getWeatherWarningsCounties();
 
 		$cacheFile = $baseURL."cache/vaderVarningar.json";
 		$maxAge = 15 * 60; // 15 minuter - matchar HA-larmets pollingintervall

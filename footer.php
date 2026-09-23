@@ -312,6 +312,28 @@
 			<?php
 				}
 			?>
+			<?php
+				$currentWarningPrefs = json_decode(isset($_COOKIE['weatherWarningsPrefs']) ? $_COOKIE['weatherWarningsPrefs'] : '{}', true);
+				if(!is_array($currentWarningPrefs)){ $currentWarningPrefs = array(); }
+				$currentCounties = isset($currentWarningPrefs['counties']) ? $currentWarningPrefs['counties'] : (isset($weatherWarningsCounties) ? $weatherWarningsCounties : array());
+				$currentMetar = isset($currentWarningPrefs['metar']) ? $currentWarningPrefs['metar'] : $stationMETAR;
+			?>
+			<h2 style="color:white">Vädervarningar</h2>
+			<div style="width:80%;margin:0 auto;text-align:left;max-height:180px;overflow-y:auto;background:rgba(255,255,255,0.1);padding:10px;border-radius:5px">
+				<?php foreach(getSwedishCounties() as $county){?>
+					<label style="display:inline-block;width:48%;color:white;font-weight:normal">
+						<input type="checkbox" class="weatherWarningCounty" value="<?php echo $county?>" <?php echo in_array($county,$currentCounties) ? "checked" : ""?>>
+						<?php echo $county?>
+					</label>
+				<?php }?>
+			</div>
+			<br>
+			<h2 style="color:white">METAR</h2>
+			<div style="width:50%;margin:0 auto">
+				<input type="text" id="userMetar" class="button2" value="<?php echo htmlspecialchars($currentMetar)?>" maxlength="4" style="text-transform:uppercase;text-align:center">
+				<br><a href="<?php echo $pageURL.$path?>pages/metar/index.php" target="_blank" style="color:white;font-size:0.85em">Hitta din närmaste METAR-station...</a>
+			</div>
+			<br>
 			<h2 style="color:white"><?php echo lang('language','c')?></h2>
 			<div style="width:50%;margin:0 auto">
 				<?php
@@ -625,14 +647,26 @@
 				userLang = $("#userLang").val();
 
 				$.ajax({url: "<?php echo $pageURL.$path?>userSettings.php?tempUnits="+tempUnits+"&windUnits="+windUnits+"&rainUnits="+rainUnits+"&pressureUnits="+pressureUnits+"&visibilityUnits="+visibilityUnits+"&cloudbaseUnits="+cloudbaseUnits+"&userLang="+userLang+"&design=<?php echo $design?>&design2=<?php echo $design2?>&designFont=<?php echo $designFont?>&designFont2=<?php echo $designFont2?>", success: function(result){
+					saveWeatherPrefs();
+				}});
+			});
+			function saveWeatherPrefs(){
+				var countiesParam = "";
+				$(".weatherWarningCounty:checked").each(function(){
+					countiesParam += "&counties[]=" + encodeURIComponent($(this).val());
+				});
+				var metarValue = $("#userMetar").val();
+				$.ajax({url: "<?php echo $pageURL.$path?>userWeatherPrefs.php?metar=" + encodeURIComponent(metarValue) + countiesParam, success: function(result){
 					$("#settingsDialog" ).dialog( "close" );
 					location.reload();
 				}});
-			});
+			}
 			$( "#resetDefaults" ).click(function() {
 				$.ajax({url: "<?php echo $pageURL.$path?>userSettings.php?reset=1", success: function(result){
-					$("#settingsDialog" ).dialog( "close" );
-					location.reload();
+					$.ajax({url: "<?php echo $pageURL.$path?>userWeatherPrefs.php?reset=1", success: function(result){
+						$("#settingsDialog" ).dialog( "close" );
+						location.reload();
+					}});
 				}});
 			});
 			<?php
