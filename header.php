@@ -941,7 +941,7 @@
 							<span class="fa fa-exclamation-triangle"></span>
 							<?php echo mb_strtoupper($warn['event'],"UTF-8")?> (<?php echo $warn['levelName']?>) &ndash; <?php echo htmlspecialchars($warn['county'])?>
 							<?php if($warn['description']!=""){?>
-								<span style="cursor:pointer;text-decoration:underline;float:right;font-size:0.9em" onclick="$('#weatherWarningText<?php echo $warningIndex?>').slideToggle();">Visa mer &#9662;</span>
+								<span style="cursor:pointer;text-decoration:underline;float:right;font-size:0.9em" onclick="$('#weatherWarningText<?php echo $warningIndex?>').slideToggle();"><?php echo lang('show more','c')?> &#9662;</span>
 								<div id="weatherWarningText<?php echo $warningIndex?>" style="display:none;font-weight:normal;margin-top:8px;font-size:0.95em;clear:both;padding-top:8px">
 									<?php echo htmlspecialchars($warn['description'])?>
 								</div>

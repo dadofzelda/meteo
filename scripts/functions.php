@@ -1336,6 +1336,18 @@
 	// weatherWarningsPrefs, satt av userWeatherPrefs.php). Faller
 	// tillbaka på adminens $weatherWarningsCounties om ingen cookie finns
 	// eller om den är tom.
+	// Vissa externa källor (t.ex. SMHI) levererar text på flera språk
+	// själva, till skillnad från t.ex. NOAA som bara ger engelska. Den
+	// här funktionen svarar "vilket språkfält ska vi plocka från en sån
+	// källa" - matchar samma "engelska som fallback"-princip som lang()
+	// redan använder för sajtens egna översatta texter. Källor med bara
+	// ETT språk (NOAA m.fl.) ska inte anropa den här alls - visa bara
+	// källans enda språk rakt av, ingen låtsas-översättning.
+	function getSourceLanguage(){
+		global $lang;
+		return ($lang=="se") ? "sv" : "en";
+	}
+
 	function getWeatherWarningsCounties(){
 		global $weatherWarningsCounties;
 
@@ -1385,6 +1397,7 @@
 
 		$levelRank = array("MESSAGE"=>0,"YELLOW"=>1,"ORANGE"=>2,"RED"=>3);
 		$levelColor = array("MESSAGE"=>"grey","YELLOW"=>"yellow","ORANGE"=>"orange","RED"=>"red");
+		$sourceLang = getSourceLanguage(); // "sv" eller "en" beroende på besökarens språkval
 
 		$active = array();
 		foreach($warnings as $warning){
@@ -1414,17 +1427,22 @@
 				$description = "";
 				if(isset($area['descriptions']) && is_array($area['descriptions'])){
 					foreach($area['descriptions'] as $desc){
-						if(isset($desc['text']['sv'])){
-							$description .= $desc['text']['sv']." ";
+						if(isset($desc['text'][$sourceLang]) && $desc['text'][$sourceLang]!=""){
+							$description .= $desc['text'][$sourceLang]." ";
+						}
+						else if(isset($desc['text']['sv'])){
+							$description .= $desc['text']['sv']." "; // källan saknade det efterfrågade språket, visa svenska hellre än inget alls
 						}
 					}
 				}
 				$active[] = array(
-					"event" => isset($warning['event']['sv']) ? $warning['event']['sv'] : "",
+					"event" => isset($warning['event'][$sourceLang]) ? $warning['event'][$sourceLang] : (isset($warning['event']['sv']) ? $warning['event']['sv'] : ""),
 					"levelCode" => $levelCode,
-					"levelName" => isset($area['warningLevel']['sv']) ? $area['warningLevel']['sv'] : $levelCode,
+					"levelName" => isset($area['warningLevel'][$sourceLang]) ? $area['warningLevel'][$sourceLang] : (isset($area['warningLevel']['sv']) ? $area['warningLevel']['sv'] : $levelCode),
 					"levelRank" => isset($levelRank[$levelCode]) ? $levelRank[$levelCode] : 0,
 					"levelColor" => isset($levelColor[$levelCode]) ? $levelColor[$levelCode] : "grey",
+					// länsnamn hålls medvetet på svenska oavsett besökarspråk - egennamn/
+					// ortnamn, samma princip som att "Stockholm" inte översätts på en engelsk sida
 					"county" => implode(", ",$counties),
 					"description" => trim($description)
 				);
