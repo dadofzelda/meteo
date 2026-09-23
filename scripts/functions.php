@@ -1183,7 +1183,11 @@
 		var $periodInSeconds = -1; // gets set when you ask for it
 		var $someFullMoonDate;
 		// $timestamp (int) date of which to calculate a moon phase and relative phases for
-		function moonPhase($timeStamp = -1) {
+		// PHP4-stilens "samma namn som klassen"-konstruktor tas inte längre emot
+		// som konstruktor i PHP8 - utan __construct() kördes aldrig setDate(),
+		// vilket gjorde att alla anrop returnerade en fryst, felaktig månfas
+		// (position 0, 100% belyst, ingen fasnamn) oavsett verkligt datum.
+		function __construct($timeStamp = -1) {
 			$this->allMoonPhases = array(
 				MP_NEW_MOON_NAME,
 				MP_WAXING_CRESCENT_NAME,
@@ -1454,6 +1458,54 @@
 		});
 
 		return $active;
+	}
+
+	// Norrskenschans - NOAA:s planetära Kp-index (geomagnetisk aktivitet 0-9),
+	// samma fetch+cache-mönster som getActiveWeatherWarnings(). Kp-indexet
+	// uppdateras hos NOAA var 3:e timme, så 30 min cache är gott om marginal.
+	function getAuroraForecast(){
+		global $baseURL;
+
+		$cacheFile = $baseURL."cache/auroraKp.json";
+		$maxAge = 30 * 60;
+
+		if(file_exists($cacheFile)){
+			if(time() - filemtime($cacheFile) > $maxAge){
+				unlink($cacheFile);
+			}
+		}
+		if(file_exists($cacheFile)){
+			$rawKp = file_get_contents($cacheFile);
+		}
+		else{
+			$kpURL = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json";
+			$rawKp = curlMain($kpURL,5);
+			if($rawKp==""){
+				$rawKp = file_get_contents($kpURL);
+			}
+			if($rawKp!=""){
+				file_put_contents($cacheFile,$rawKp);
+			}
+		}
+
+		if($rawKp==""){
+			return array();
+		}
+		$rows = json_decode($rawKp,true);
+		if(!is_array($rows) || count($rows)<1){
+			return array();
+		}
+		// varje rad är ett objekt {"time_tag":...,"Kp":...,"a_running":...,"station_count":...},
+		// verifierat live 2026-09-23 - sista posten är senaste avläsningen
+		$latest = end($rows);
+		if(!isset($latest['time_tag']) || !isset($latest['Kp'])){
+			return array();
+		}
+
+		return array(
+			"time" => $latest['time_tag'],
+			"kp" => floatval($latest['Kp'])
+		);
 	}
 
 ?>

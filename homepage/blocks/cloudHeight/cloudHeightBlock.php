@@ -103,18 +103,18 @@
 		</table>
 		<div style="width:98%;text-align:justify;font-size:0.9em;margin:0 auto" class="details" id="cloudHeightDetails">
 			<p>
-				The cloud base (height) is the lowest altitude of the visible portion of the cloud. It is traditionally expressed either in m or feet above mean sea level (or planetary surface), or as the corresponding pressure level in hectopascal (hPa, equivalent to millibar).
+				<?php echo lang('the cloud base (height) is the lowest altitude of the visible portion of the cloud. it is traditionally expressed either in m or feet above mean sea level (or planetary surface), or as the corresponding pressure level in hectopascal (hpa, equivalent to millibar).','c')?>
 			</p>
 			<p>
-				The height of the cloud base can be measured using a ceilometer or it can be estimated from surface measurements of air temperature and humidity. The calculation is based on the assumption that the air temperature drops 9.84&deg;C per 1000 m of altitude and the dewpoint drops 1.82&deg;C per 1000 meters altitude.
+				<?php echo lang('the height of the cloud base can be measured using a ceilometer or it can be estimated from surface measurements of air temperature and humidity. the calculation is based on the assumption that the air temperature drops 9.84 degrees c per 1000 m of altitude and the dewpoint drops 1.82 degrees c per 1000 meters altitude.','c')?>
 			</p>
 			<p>
 				<div style="margin:0 auto;text-align:center">
 					<i>h = ((T - D) / 4.4) * 1000</i>
 				</div>
-				<span style="font-size:0.8em">h - cloud height above ground [ft]</span><br />
-				<span style="font-size:0.8em">T - air temperature [F]</span><br />
-				<span style="font-size:0.8em">D - dew point [F]</span><br />
+				<span style="font-size:0.8em"><?php echo lang('h - cloud height above ground [ft]')?></span><br />
+				<span style="font-size:0.8em"><?php echo lang('t - air temperature [f]')?></span><br />
+				<span style="font-size:0.8em"><?php echo lang('d - dew point [f]')?></span><br />
 			</p>
 		</div>
 		<span class="more" onclick="txt = $('#cloudHeightDetails').is(':visible') ? '<?php echo lang('more','l')?>' : '<?php echo lang('hide','l')?>';$('#cloudHeightDetails').slideToggle(800);$(this).text(txt)">
