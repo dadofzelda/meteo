@@ -27,11 +27,13 @@
 			$prefs['metar'] = strtoupper(trim($_GET['metar']));
 		}
 
-		setcookie('weatherWarningsPrefs', json_encode($prefs), time() + (86400 * 30), "/");
+		// domän satt explicit så cookien delas mellan weather.sollebrunn.net
+		// och www.weather.sollebrunn.net - se userSettings.php för samma fix
+		setcookie('weatherWarningsPrefs', json_encode($prefs), time() + (86400 * 30), "/", ".weather.sollebrunn.net");
 	}
 	else{
 		unset($_COOKIE['weatherWarningsPrefs']);
-		setcookie('weatherWarningsPrefs', null, -1, '/');
+		setcookie('weatherWarningsPrefs', null, -1, '/', ".weather.sollebrunn.net");
 	}
 
 ?>

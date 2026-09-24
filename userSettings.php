@@ -51,10 +51,14 @@
 
 		$cookieText = implode(";",$cookieFields);
 
-		setcookie('weatherTemplate', $cookieText, time() + (86400 * 30), "/");
+		// domän satt explicit (med inledande punkt) så cookien delas mellan
+		// weather.sollebrunn.net och www.weather.sollebrunn.net - annars blir
+		// den host-only och försvinner så fort besökaren växlar mellan de två
+		// (se 02-buggar-diagnos.md Fynd 13 för hur detta upptäcktes)
+		setcookie('weatherTemplate', $cookieText, time() + (86400 * 30), "/", ".weather.sollebrunn.net");
 	}
 	else{
 		unset($_COOKIE['weatherTemplate']);
-		setcookie('weatherTemplate', null, -1, '/');
+		setcookie('weatherTemplate', null, -1, '/', ".weather.sollebrunn.net");
 	}
 ?>

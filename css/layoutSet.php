@@ -38,5 +38,7 @@
 	
 	$cookieText = implode(";",$cookieNew);
 	
-	setcookie('weatherTemplate', $cookieText, time() + (86400 * 30), "/");
+	// domän satt explicit så cookien delas mellan weather.sollebrunn.net och
+	// www.weather.sollebrunn.net - se userSettings.php/02-buggar-diagnos.md Fynd 13
+	setcookie('weatherTemplate', $cookieText, time() + (86400 * 30), "/", ".weather.sollebrunn.net");
 ?>

@@ -49,7 +49,7 @@
 					require("hash.php");
 					$password = $_POST['password'];
 					$hash = password_hash($password, PASSWORD_BCRYPT);
-					setcookie("meteotemplateAdmin", $hash, time() + 3600*24*365*10,'/'); // log in for 10 years ;)
+					setcookie("meteotemplateAdmin", $hash, time() + 3600*24*365*10,'/','.weather.sollebrunn.net'); // log in for 10 years ;)
 				}
 			}
 		}
