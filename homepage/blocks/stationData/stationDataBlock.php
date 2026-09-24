@@ -81,10 +81,7 @@
 	include("../../../css/design.php");
 	include("../../../scripts/functions.php");
 
-	$languageRaw = file_get_contents($baseURL."lang/gb.php");
-	$language['gb'] = json_decode($languageRaw,true);
-	$languageRaw = file_get_contents($baseURL."lang/".$lang.".php");
-	$language[$lang] = json_decode($languageRaw,true);
+	$language = loadLangs();
 
 ?>
 	<style>
